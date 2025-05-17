@@ -1,0 +1,126 @@
+[
+  {
+    "title": "Tech Conference 2025",
+    "description": "A gathering of top tech minds to discuss the future of AI and software.",
+    "venue": "Sunway Pyramid Convention Centre",
+    "durationInMinutes": 180,
+    "eventFee": [
+      {
+        "type": "General",
+        "price": 50.0
+      }
+    ]
+  },
+  {
+    "title": "Startup Pitch Night",
+    "description": "Early-stage startups pitch to a panel of investors.",
+    "venue": "Sunway Innovation Lab",
+    "durationInMinutes": 120,
+    "eventFee": [
+      {
+        "type": "Entry",
+        "price": 20.0
+      }
+    ]
+  },
+  {
+    "title": "Creative Writing Workshop",
+    "description": "Interactive session on storytelling and publishing tips.",
+    "venue": "Sunway Library Room B1",
+    "durationInMinutes": 90,
+    "eventFee": [
+      {
+        "type": "Workshop Fee",
+        "price": 15.0
+      }
+    ]
+  },
+  {
+    "title": "AI in Healthcare Forum",
+    "description": "Experts discuss the role of AI in transforming healthcare.",
+    "venue": "Sunway Medical Auditorium",
+    "durationInMinutes": 150,
+    "eventFee": [
+      {
+        "type": "Professional",
+        "price": 75.0
+      },
+      {
+        "type": "Student",
+        "price": 30.0
+      }
+    ]
+  },
+  {
+    "title": "Career Fair 2025",
+    "description": "Meet top employers and explore job opportunities.",
+    "venue": "Sunway University Hall",
+    "durationInMinutes": 240,
+    "eventFee": [
+      {
+        "type": "Free",
+        "price": 0.0
+      }
+    ]
+  },
+  {
+    "title": "Python for Beginners",
+    "description": "Learn the basics of Python programming in a hands-on setting.",
+    "venue": "Lab 301, Sunway University",
+    "durationInMinutes": 120,
+    "eventFee": [
+      {
+        "type": "Standard",
+        "price": 25.0
+      }
+    ]
+  },
+  {
+    "title": "Photography Masterclass",
+    "description": "Improve your photography skills with a pro photographer.",
+    "venue": "Studio A, Sunway",
+    "durationInMinutes": 180,
+    "eventFee": [
+      {
+        "type": "Entry",
+        "price": 40.0
+      }
+    ]
+  },
+  {
+    "title": "Blockchain Basics",
+    "description": "Demystifying blockchain and its real-world applications.",
+    "venue": "Sunway FinTech Hub",
+    "durationInMinutes": 90,
+    "eventFee": [
+      {
+        "type": "Regular",
+        "price": 20.0
+      }
+    ]
+  },
+  {
+    "title": "UI/UX Design Sprint",
+    "description": "Collaborative design challenge focused on solving real problems.",
+    "venue": "Sunway iLabs Makerspace",
+    "durationInMinutes": 210,
+    "eventFee": [
+      {
+        "type": "Participant",
+        "price": 35.0
+      }
+    ]
+  },
+  {
+    "title": "Public Speaking Bootcamp",
+    "description": "Enhance your public speaking and presentation skills.",
+    "venue": "Room A2, Sunway Business School",
+    "durationInMinutes": 180,
+    "eventFee": [
+      {
+        "type": "Workshop Fee",
+        "price": 30.0
+      }
+    ]
+  }
+]
