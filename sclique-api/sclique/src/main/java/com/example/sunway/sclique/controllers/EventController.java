@@ -1,8 +1,7 @@
 package com.example.sunway.sclique.controller;
 
-import com.example.sunway.sclique.dto.CreateEventRequest;
-import com.example.sunway.sclique.dto.SearchEventsResponse;
-import com.example.sunway.sclique.model.Event;
+import com.example.sunway.sclique.model.CreateEventRequest;
+import com.example.sunway.sclique.model.SearchEventsResponse;
 import com.example.sunway.sclique.service.EventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/events")
+@RequestMapping("/api/v1/events")
 public class EventController {
     private final EventService eventService;
 

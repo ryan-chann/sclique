@@ -1,18 +1,21 @@
-package com.example.sunway.sclique.service;
+package com.example.sunway.sclique.services.implementation;
 
-import com.example.sunway.sclique.dto.CreateEventRequest;
-import com.example.sunway.sclique.dto.SearchEventsResponse;
-import com.example.sunway.sclique.model.EventFee;
-import com.example.sunway.sclique.repository.IEventRepository;
+import com.example.sunway.sclique.models.CreateEventRequest;
+import com.example.sunway.sclique.models.SearchEventsResponse;
+import com.example.sunway.sclique.entities.EventFee;
+import com.example.sunway.sclique.repositories.IEventRepository;
+
+import com.example.sunway.sclique.services.IEventService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.sunway.sclique.model.Event;
+
+import com.example.sunway.sclique.entities.Event;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class EventService {
+public class EventService implements IEventService {
     private final IEventRepository eventRepository;
 
     @Autowired

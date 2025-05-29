@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.dto;
+package com.example.sunway.sclique.model;
 
 import lombok.Getter;
 import lombok.Setter;

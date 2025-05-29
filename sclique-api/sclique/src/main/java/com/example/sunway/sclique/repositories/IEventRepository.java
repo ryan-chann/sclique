@@ -1,6 +1,7 @@
 package com.example.sunway.sclique.repository;
 
-import com.example.sunway.sclique.model.Event;
+import com.example.sunway.sclique.entitity.Event;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

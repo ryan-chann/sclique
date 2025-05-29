@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.model.base;
+package com.example.sunway.sclique.entitities.base;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -18,19 +19,19 @@ public abstract class EntityBase {
     private LocalDateTime createdAt;
 
     @Column(name = "created_by", updatable = false)
-    private String createdBy;
+    private UUID createdBy;
 
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
 
     @Column(name = "modified_by")
-    private String modifiedBy;
+    private UUID modifiedBy;
 
     @Column(name = "deleted_at")
     private LocalDateTime deletedAt;
 
     @Column(name = "deleted_by")
-    private String deletedBy;
+    private UUID deletedBy;
 
     @Column(name = "is_deleted")
     private boolean isDeleted = Boolean.FALSE;

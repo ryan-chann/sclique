@@ -1,11 +1,15 @@
-package com.example.sunway.sclique.model;
+package com.example.sunway.sclique.entitities;
 
-import com.example.sunway.sclique.model.base.EntityBase;
+import com.example.sunway.sclique.entitities.base.EntityBase;
+
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.List;
@@ -16,6 +20,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "event")
 public class Event extends EntityBase {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -24,10 +29,30 @@ public class Event extends EntityBase {
             strategy = "org.hibernate.id.UUIDGenerator"
     )
     private UUID id;
+
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    @Column(name = "event_photo")
+    private byte[] eventPhoto;
+
+    @Size(max = 128)
+    @Column(length = 128)
     private String title;
+
+    @Size(max = 2048)
+    @Column(length = 2048)
     private String description;
+
+    @Size(max = 128)
+    @Column(length = 128)
     private String venue;
+
+    @Column(name = "duration_in_minutes")
     private int durationInMinutes;
+
+    @Size(max = 256)
+    @Column(length = 256, name = "participation_link")
+    private String participationLink;
 
     @OneToMany(
             fetch = FetchType.LAZY,
