@@ -1,0 +1,9 @@
+---
+title: Sclique ERD
+---
+
+erDiagram
+COMMITTEE_MEMBER ||--|{ ORGANISATION_COMMITTEE_MEMBER : represents
+ORGANISATION ||--|{ ORGANISATION_COMMITTEE_MEMBER : has
+ORGANISATION ||--o{ EVENT : hosts
+EVENT ||--|{ EVENT_FEE : has

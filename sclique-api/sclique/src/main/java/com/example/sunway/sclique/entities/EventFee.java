@@ -1,6 +1,6 @@
-package com.example.sunway.sclique.entitities;
+package com.example.sunway.sclique.entities;
 
-import com.example.sunway.sclique.entitities.base.EntityBase;
+import com.example.sunway.sclique.entities.base.EntityBase;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;

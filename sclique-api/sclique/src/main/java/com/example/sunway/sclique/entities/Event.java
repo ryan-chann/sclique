@@ -1,6 +1,6 @@
-package com.example.sunway.sclique.entitities;
+package com.example.sunway.sclique.entities;
 
-import com.example.sunway.sclique.entitities.base.EntityBase;
+import com.example.sunway.sclique.entities.base.EntityBase;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Where;
 
 import java.util.List;
 import java.util.UUID;
@@ -30,10 +31,15 @@ public class Event extends EntityBase {
     )
     private UUID id;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "event_photo")
-    private byte[] eventPhoto;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "entity_id",
+            referencedColumnName = "id",
+            insertable = false,
+            updatable = false
+    )
+    @Where(clause = "entity_type = 1") // EntityType.EVENT
+    private List<Image> images;
 
     @Size(max = 128)
     @Column(length = 128)

@@ -1,8 +1,8 @@
-package com.example.sunway.sclique.entitities;
+package com.example.sunway.sclique.entities;
 
 import com.example.sunway.sclique.converter.EntityTypeConverter;
 import com.example.sunway.sclique.converter.ImageTypeConverter;
-import com.example.sunway.sclique.entitities.base.EntityBase;
+import com.example.sunway.sclique.entities.base.EntityBase;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
 
@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
 
@@ -23,8 +24,12 @@ import java.util.UUID;
 @Table(name = "image")
 public class Image extends EntityBase {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
+    )
+    private UUID id;
 
     @Column(name = "entity_id")
     private UUID entityId;

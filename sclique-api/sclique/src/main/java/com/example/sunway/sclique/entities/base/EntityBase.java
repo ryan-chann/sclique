@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.entitities.base;
+package com.example.sunway.sclique.entities.base;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;

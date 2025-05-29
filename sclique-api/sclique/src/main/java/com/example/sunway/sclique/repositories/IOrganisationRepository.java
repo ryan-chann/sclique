@@ -1,6 +1,6 @@
-package com.example.sunway.sclique.repository;
+package com.example.sunway.sclique.repositories;
 
-import com.example.sunway.sclique.entitity.Organisation;
+import com.example.sunway.sclique.entities.Organisation;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

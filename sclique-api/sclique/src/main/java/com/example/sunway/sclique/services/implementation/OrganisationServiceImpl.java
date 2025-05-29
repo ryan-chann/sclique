@@ -5,15 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OrganisationService {
+public class OrganisationServiceImpl {
     private final IOrganisationRepository organisationRepository;
 
     @Autowired
-    public OrganisationService(IOrganisationRepository organisationRepository) {
+    public OrganisationServiceImpl(IOrganisationRepository organisationRepository) {
         this.organisationRepository = organisationRepository;
     }
 
-    public boolean createOrganisation(){
-
-    }
+//    public boolean createOrganisation(){
+//
+//    }
 }

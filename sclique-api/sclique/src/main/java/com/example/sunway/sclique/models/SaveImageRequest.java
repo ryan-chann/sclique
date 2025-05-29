@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateImageRequest {
+public class SaveImageRequest {
     private String entityId;
     private int entityType;
     private int imageType;

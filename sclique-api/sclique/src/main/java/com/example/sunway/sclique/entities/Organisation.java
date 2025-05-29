@@ -1,7 +1,8 @@
-package com.example.sunway.sclique.entitities;
+package com.example.sunway.sclique.entities;
 
-import com.example.sunway.sclique.entitities.base.EntityBase;
+import com.example.sunway.sclique.entities.base.EntityBase;
 
+import com.example.sunway.sclique.enums.EntityType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Where;
 
 import java.util.UUID;
 import java.util.List;
@@ -32,15 +34,15 @@ public class Organisation extends EntityBase {
 
     private String name;
 
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "profile_photo")
-    private byte[] profilePhoto;
-
-    @Lob
-    @Basic(fetch = FetchType.LAZY)
-    @Column(name = "cover_photo")
-    private byte[] coverPhoto;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(
+            name = "entity_id",
+            referencedColumnName = "id",
+            insertable = false,
+            updatable = false
+    )
+    @Where(clause = "entity_type = 2") // EntityType.ORGANISATION
+    private List<Image> images;
 
     @Size(max = 2048)
     @Column(length = 2048)

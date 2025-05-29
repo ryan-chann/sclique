@@ -1,33 +1,58 @@
 package com.example.sunway.sclique.services.implementation;
 
+import com.example.sunway.sclique.mapper.IEventMapper;
 import com.example.sunway.sclique.models.CreateEventRequest;
 import com.example.sunway.sclique.models.SearchEventsResponse;
-import com.example.sunway.sclique.entities.EventFee;
 import com.example.sunway.sclique.repositories.IEventRepository;
 
 import com.example.sunway.sclique.services.IEventService;
+import com.example.sunway.sclique.services.IImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.sunway.sclique.entities.Event;
+import com.example.sunway.sclique.models.ServiceResponse;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class EventService implements IEventService {
+public class EventServiceImpl implements IEventService {
     private final IEventRepository eventRepository;
+    private final IEventMapper eventMapper;
+    private final IImageService imageService;
 
     @Autowired
-    public EventService(IEventRepository eventRepository) {
+    public EventServiceImpl(
+            IEventRepository eventRepository,
+            IEventMapper eventMapper,
+            IImageService imageService
+    ) {
         this.eventRepository = eventRepository;
+        this.eventMapper = eventMapper;
+        this.imageService = imageService;
     }
 
-    public boolean createEvent(CreateEventRequest createEventRequest)
-    {
-        Event savedEvent = eventRepository.save(mapCreateEventRequestToEvent(createEventRequest));
+    public ServiceResponse<Boolean> createEvent(CreateEventRequest createEventRequest) {
 
-        return savedEvent.getId() != null;
+        var response = new ServiceResponse<Boolean>();
+
+        if (createEventRequest == null){
+            response.setMessage("Request is null");
+            return response;
+        }
+
+        Event event = eventMapper.createEventRequestToEvent(createEventRequest);
+
+        try{
+            Event savedEvent = eventRepository.save(event);
+            response.setSuccess(true);
+        } catch (Exception ex){
+            response.setSuccess(false);
+            response.setMessage(ex.getMessage());
+            return response;
+        }
+        return response;
     }
 
     public List<SearchEventsResponse> getEventByMatchingIdOrTitle(String keyword)
@@ -41,26 +66,5 @@ public class EventService implements IEventService {
                     return response;
                 })
                 .collect(Collectors.toList());
-    }
-
-    private static Event mapCreateEventRequestToEvent(CreateEventRequest createEventRequest) {
-        Event event = new Event();
-        event.setTitle(createEventRequest.getTitle());
-        event.setDescription(createEventRequest.getDescription());
-        event.setVenue(createEventRequest.getVenue());
-        event.setDurationInMinutes(createEventRequest.getDurationInMinutes());
-
-        if(createEventRequest.getEventFee() != null) {
-            event.setEventFee(
-                    createEventRequest.getEventFee().stream().map(eventFeeDto -> {
-                        EventFee eventFee = new EventFee();
-                        eventFee.setType(eventFeeDto.getType());
-                        eventFee.setPrice(eventFeeDto.getPrice());
-                        eventFee.setEvent(event);
-                        return eventFee;
-                    }).collect(Collectors.toList())
-            );
-        }
-        return event;
     }
 }
