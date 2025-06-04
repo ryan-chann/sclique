@@ -1,7 +1,7 @@
 package com.example.sunway.sclique.entities;
 
-import com.example.sunway.sclique.converter.EntityTypeConverter;
-import com.example.sunway.sclique.converter.ImageTypeConverter;
+import com.example.sunway.sclique.converters.EntityTypeConverter;
+import com.example.sunway.sclique.converters.ImageTypeConverter;
 import com.example.sunway.sclique.entities.base.EntityBase;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
@@ -34,6 +34,8 @@ public class Image extends EntityBase {
     @Column(name = "entity_id")
     private UUID entityId;
 
+    private int sequence;
+
     @Column(name = "entity_type")
     @Convert(converter = EntityTypeConverter.class)
     private EntityType entityType;
@@ -47,6 +49,9 @@ public class Image extends EntityBase {
 
     @Column(length = 128, name = "mime_type")
     private String mimeType;
+
+    @Column(name = "file_size")
+    private Long fileSize;
 
     @Lob
     @Basic(fetch = FetchType.LAZY)

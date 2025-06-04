@@ -1,19 +1,20 @@
 package com.example.sunway.sclique.services.implementation;
 
+import com.example.sunway.sclique.entities.Event;
 import com.example.sunway.sclique.mapper.IEventMapper;
 import com.example.sunway.sclique.models.CreateEventRequest;
-import com.example.sunway.sclique.models.SearchEventsResponse;
+import com.example.sunway.sclique.models.SearchEventsRequest;
+import com.example.sunway.sclique.models.ServiceResponse;
 import com.example.sunway.sclique.repositories.IEventRepository;
-
 import com.example.sunway.sclique.services.IEventService;
 import com.example.sunway.sclique.services.IImageService;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.sunway.sclique.entities.Event;
-import com.example.sunway.sclique.models.ServiceResponse;
-
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -45,7 +46,7 @@ public class EventServiceImpl implements IEventService {
         Event event = eventMapper.createEventRequestToEvent(createEventRequest);
 
         try{
-            Event savedEvent = eventRepository.save(event);
+            eventRepository.save(event);
             response.setSuccess(true);
         } catch (Exception ex){
             response.setSuccess(false);
@@ -55,16 +56,22 @@ public class EventServiceImpl implements IEventService {
         return response;
     }
 
-    public List<SearchEventsResponse> getEventByMatchingIdOrTitle(String keyword)
+    public ServiceResponse<Page<String>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest request)
     {
-        List<Event> events =  eventRepository.searchByIdOrTitle(keyword);
+        var response = new ServiceResponse<Page<String>>();
 
-        return events.stream()
-                .map(event -> {
-                    SearchEventsResponse response = new SearchEventsResponse();
-                    response.setTitle(event.getTitle());
-                    return response;
-                })
-                .collect(Collectors.toList());
+        if (request == null){
+            response.setMessage("Request is null");
+            return response;
+        }
+
+        Pageable pageable = PageRequest.of(request.getPage(), request.getPageSize());
+
+        Page<String> eventTitlePage =  eventRepository.findEventTitleByIdOrTitleContainingIgnoreCase(request.getKeyword(), pageable);
+
+        response.setData(eventTitlePage);
+        response.setSuccess(true);
+
+        return response;
     }
 }

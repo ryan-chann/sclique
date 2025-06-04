@@ -1,11 +1,11 @@
-package com.example.sunway.sclique.converter;
+package com.example.sunway.sclique.converters;
 
 import com.example.sunway.sclique.enums.EntityType;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-@Converter(autoApply = true)
+@Converter(autoApply = false)
 public class EntityTypeConverter implements AttributeConverter<EntityType, Integer> {
 
     @Override
@@ -21,7 +21,6 @@ public class EntityTypeConverter implements AttributeConverter<EntityType, Integ
         if (id == null) {
             return null;
         }
-
         return EntityType.fromId(id);
     }
 }

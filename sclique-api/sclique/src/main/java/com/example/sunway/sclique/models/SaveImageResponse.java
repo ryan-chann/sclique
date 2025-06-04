@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SaveImageRequest {
-    private String entityId;
-    private int entityType;
-    private int imageType;
+public class SaveImageResponse {
+    private String mimeType;
+    private String fileName;
+    private Long fileSize;
 }

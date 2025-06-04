@@ -31,7 +31,6 @@ public interface IImageMapper {
                 return entityType;
             }
         }
-
         return null;
     }
 
@@ -42,8 +41,6 @@ public interface IImageMapper {
                 return imageType;
             }
         }
-
         return null;
     }
-
 }

@@ -1,14 +1,14 @@
 package com.example.sunway.sclique.services;
 
 import com.example.sunway.sclique.models.CreateEventRequest;
-import com.example.sunway.sclique.models.SearchEventsResponse;
+import com.example.sunway.sclique.models.SearchEventsRequest;
 import com.example.sunway.sclique.models.ServiceResponse;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
 
 public interface IEventService {
 
     ServiceResponse<Boolean> createEvent(CreateEventRequest createEventRequest);
 
-    List<SearchEventsResponse> getEventByMatchingIdOrTitle(String keyword);
+    ServiceResponse<Page<String>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest request);
 }

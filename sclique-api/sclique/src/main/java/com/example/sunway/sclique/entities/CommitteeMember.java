@@ -31,16 +31,6 @@ public class CommitteeMember extends EntityBase {
     )
     private UUID id;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "entity_id",
-            referencedColumnName = "id",
-            insertable = false,
-            updatable = false
-    )
-    @Where(clause = "entity_type = 0") // EntityType.COMMITTEE_MEMBER
-    private List<Image> images;
-
     @Size(max = 128)
     @Column(length = 128)
     private String name;

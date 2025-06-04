@@ -1,11 +1,11 @@
-package com.example.sunway.sclique.converter;
+package com.example.sunway.sclique.converters;
 
 import com.example.sunway.sclique.enums.ImageType;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 
-@Converter(autoApply = true)
+@Converter(autoApply = false)
 public class ImageTypeConverter implements AttributeConverter<ImageType, Integer> {
 
     @Override

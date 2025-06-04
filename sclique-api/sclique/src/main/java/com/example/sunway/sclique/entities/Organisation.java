@@ -34,16 +34,6 @@ public class Organisation extends EntityBase {
 
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(
-            name = "entity_id",
-            referencedColumnName = "id",
-            insertable = false,
-            updatable = false
-    )
-    @Where(clause = "entity_type = 2") // EntityType.ORGANISATION
-    private List<Image> images;
-
     @Size(max = 2048)
     @Column(length = 2048)
     private String description;
