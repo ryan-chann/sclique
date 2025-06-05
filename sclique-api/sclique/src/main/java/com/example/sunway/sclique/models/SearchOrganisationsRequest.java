@@ -7,6 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SearchEventsRequest extends PageableModel {
+public class SearchOrganisationsRequest extends PageableModel {
     private String query;
 }

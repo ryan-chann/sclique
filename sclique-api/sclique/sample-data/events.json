@@ -4,6 +4,7 @@
     "description": "A gathering of top tech minds to discuss the future of AI and software.",
     "venue": "Sunway Pyramid Convention Centre",
     "durationInMinutes": 180,
+    "participationLink": "https://events.example.com/tech-conference-2025",
     "eventFee": [
       {
         "type": "General",
@@ -16,6 +17,7 @@
     "description": "Early-stage startups pitch to a panel of investors.",
     "venue": "Sunway Innovation Lab",
     "durationInMinutes": 120,
+    "participationLink": "https://events.example.com/startup-pitch-night",
     "eventFee": [
       {
         "type": "Entry",
@@ -28,6 +30,7 @@
     "description": "Interactive session on storytelling and publishing tips.",
     "venue": "Sunway Library Room B1",
     "durationInMinutes": 90,
+    "participationLink": "https://events.example.com/creative-writing-workshop",
     "eventFee": [
       {
         "type": "Workshop Fee",
@@ -40,6 +43,7 @@
     "description": "Experts discuss the role of AI in transforming healthcare.",
     "venue": "Sunway Medical Auditorium",
     "durationInMinutes": 150,
+    "participationLink": "https://events.example.com/ai-healthcare-forum",
     "eventFee": [
       {
         "type": "Professional",
@@ -56,6 +60,7 @@
     "description": "Meet top employers and explore job opportunities.",
     "venue": "Sunway University Hall",
     "durationInMinutes": 240,
+    "participationLink": "https://events.example.com/career-fair-2025",
     "eventFee": [
       {
         "type": "Free",
@@ -68,6 +73,7 @@
     "description": "Learn the basics of Python programming in a hands-on setting.",
     "venue": "Lab 301, Sunway University",
     "durationInMinutes": 120,
+    "participationLink": "https://events.example.com/python-for-beginners",
     "eventFee": [
       {
         "type": "Standard",
@@ -80,6 +86,7 @@
     "description": "Improve your photography skills with a pro photographer.",
     "venue": "Studio A, Sunway",
     "durationInMinutes": 180,
+    "participationLink": "https://events.example.com/photography-masterclass",
     "eventFee": [
       {
         "type": "Entry",
@@ -92,6 +99,7 @@
     "description": "Demystifying blockchain and its real-world applications.",
     "venue": "Sunway FinTech Hub",
     "durationInMinutes": 90,
+    "participationLink": "https://events.example.com/blockchain-basics",
     "eventFee": [
       {
         "type": "Regular",
@@ -104,6 +112,7 @@
     "description": "Collaborative design challenge focused on solving real problems.",
     "venue": "Sunway iLabs Makerspace",
     "durationInMinutes": 210,
+    "participationLink": "https://events.example.com/ui-ux-design-sprint",
     "eventFee": [
       {
         "type": "Participant",
@@ -116,6 +125,7 @@
     "description": "Enhance your public speaking and presentation skills.",
     "venue": "Room A2, Sunway Business School",
     "durationInMinutes": 180,
+    "participationLink": "https://events.example.com/public-speaking-bootcamp",
     "eventFee": [
       {
         "type": "Workshop Fee",

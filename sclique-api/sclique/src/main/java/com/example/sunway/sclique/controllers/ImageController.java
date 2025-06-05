@@ -1,17 +1,15 @@
 package com.example.sunway.sclique.controllers;
 
-import com.example.sunway.sclique.models.SaveImageRequest;
+import com.example.sunway.sclique.models.CreateImageRequest;
 import com.example.sunway.sclique.services.IImageService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.List;
-import java.util.UUID;
-
 @RestController
-@RequestMapping("/api/v1/images")
+@RequestMapping("/api/v1/image")
 public class ImageController {
     private final IImageService imageService;
 
@@ -21,19 +19,18 @@ public class ImageController {
     }
 
     @PostMapping(value = "/upload/event/advertisement", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> uploadEventAdvertisementImage(
-            @RequestPart("files") MultipartFile file,
-            @RequestPart("request") SaveImageRequest request
+    public ResponseEntity<?> uploadEventAdvertisementImage(
+            @RequestPart("files") @Valid MultipartFile file,
+            @RequestPart("request") CreateImageRequest request
     ) {
-
         try {
             var serviceResponse = imageService.saveEventAdvertisementImage(file, request);
 
             if (!serviceResponse.isSuccess()) {
-                return new ResponseEntity<>(serviceResponse.getMessage(), HttpStatus.BAD_REQUEST);
+                return new ResponseEntity<>(serviceResponse.getErrorMessage(), HttpStatus.BAD_REQUEST);
             }
-            return ResponseEntity.ok().body(serviceResponse.getMessage());
 
+            return ResponseEntity.ok().body(serviceResponse.getData());
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Upload failed: " + e.getMessage());
         }
@@ -44,7 +41,7 @@ public class ImageController {
         var serviceResponse = imageService.getImageByEntityId(entityId);
 
         if (!serviceResponse.isSuccess()) {
-            return ResponseEntity.badRequest().body(serviceResponse.getMessage());
+            return ResponseEntity.badRequest().body(serviceResponse.getErrorMessage());
         }
 
         return ResponseEntity.ok(serviceResponse.getData());

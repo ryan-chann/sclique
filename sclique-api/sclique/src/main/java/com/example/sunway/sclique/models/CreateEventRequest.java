@@ -1,6 +1,8 @@
 package com.example.sunway.sclique.models;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,19 +11,20 @@ import java.util.List;
 @Getter
 @Setter
 public class CreateEventRequest {
-    @NotNull(message = "Title is required")
+    @NotBlank(message = "Title is required")
     private String title;
 
-    @NotNull(message = "Description is required")
+    @NotBlank(message = "Description is required")
     private String description;
 
-    @NotNull(message = "Venue is required")
+    @NotBlank(message = "Venue is required")
     private String venue;
 
     @NotNull(message = "DurationInMinutes is required")
+    @Positive(message = "DurationInMinutes must be a positive integer")
     private int durationInMinutes;
 
-    @NotNull(message = "ParticipationLink is required")
+    @NotBlank(message = "ParticipationLink is required")
     private String participationLink;
 
     @NotNull(message = "EventFees is required")
@@ -30,10 +33,11 @@ public class CreateEventRequest {
     @Getter
     @Setter
     public static class EventFeeDto {
-        @NotNull(message = "EventFee Type is required")
+        @NotBlank(message = "EventFee Type is required")
         private String type;
 
         @NotNull(message = "EventFee Type is required")
+        @Positive(message = "Price must be a positive integer")
         private double price;
     }
 }

@@ -3,7 +3,7 @@ package com.example.sunway.sclique.mapper;
 import com.example.sunway.sclique.entities.Image;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
-import com.example.sunway.sclique.models.SaveImageRequest;
+import com.example.sunway.sclique.models.CreateImageRequest;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,7 +17,7 @@ public interface IImageMapper {
     @Mapping(source = "entityId", target = "entityId", qualifiedByName = "stringToUUID")
     @Mapping(source = "entityType", target = "entityType", qualifiedByName = "intToEntityType")
     @Mapping(source = "imageType", target = "imageType", qualifiedByName = "intToImageType")
-    Image saveImageRequestToImage(SaveImageRequest saveImageRequest);
+    Image saveImageRequestToImage(CreateImageRequest createImageRequest);
 
     @Named("stringToUUID")
     default UUID stringToUUID(String id) {

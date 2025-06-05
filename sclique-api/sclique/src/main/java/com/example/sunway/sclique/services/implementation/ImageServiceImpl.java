@@ -2,15 +2,14 @@ package com.example.sunway.sclique.services.implementation;
 
 import com.example.sunway.sclique.entities.Image;
 import com.example.sunway.sclique.mapper.IImageMapper;
+import com.example.sunway.sclique.models.CreateImageRequest;
 import com.example.sunway.sclique.models.GetImageByEntityIdResponse;
-import com.example.sunway.sclique.models.SaveImageRequest;
-import com.example.sunway.sclique.models.SaveImageResponse;
+import com.example.sunway.sclique.models.CreateImageResponse;
 import com.example.sunway.sclique.models.ServiceResponse;
 import com.example.sunway.sclique.repositories.IImageRepository;
 import com.example.sunway.sclique.services.IImageService;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,7 +19,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Base64;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -35,14 +33,15 @@ public class ImageServiceImpl implements IImageService {
         this.imageMapper = imageMapper;
     }
 
-    public ServiceResponse<SaveImageResponse> saveEventAdvertisementImage(MultipartFile eventAdvertisementImage, SaveImageRequest request) throws IOException {
-        var response = new ServiceResponse<SaveImageResponse>();
+    public ServiceResponse<CreateImageResponse> saveEventAdvertisementImage(MultipartFile eventAdvertisementImage, CreateImageRequest request) throws IOException {
+        var serviceResponse = new ServiceResponse<CreateImageResponse>();
+        var saveImageResponse = new CreateImageResponse();
 
         BufferedImage bufferedImage = ImageIO.read(eventAdvertisementImage.getInputStream());
 
         if (bufferedImage == null) {
-            response.setMessage("File: " + eventAdvertisementImage.getOriginalFilename() + " is either empty or not an image");
-            return response;
+            serviceResponse.setErrorMessage("File: " + eventAdvertisementImage.getOriginalFilename() + " is either empty or not an image");
+            return serviceResponse;
         }
 
         Image image = imageMapper.saveImageRequestToImage(request);
@@ -53,9 +52,14 @@ public class ImageServiceImpl implements IImageService {
 
         imageRepository.save(image);
 
-        response.setSuccess(true);
-        response.setMessage("Image saved successfully");
-        return response;
+        saveImageResponse.setFileSize(eventAdvertisementImage.getSize());
+        saveImageResponse.setMimeType(eventAdvertisementImage.getContentType());
+        saveImageResponse.setFileName(eventAdvertisementImage.getOriginalFilename());
+
+        serviceResponse.setData(saveImageResponse);
+        serviceResponse.setSuccess(true);
+
+        return serviceResponse;
     }
 
     @Transactional
@@ -67,7 +71,7 @@ public class ImageServiceImpl implements IImageService {
             entityId = UUID.fromString(entityIdString);
         } catch (IllegalArgumentException ex) {
             serviceResponse.setSuccess(false);
-            serviceResponse.setMessage("Invalid UUID format: " + ex.getMessage());
+            serviceResponse.setErrorMessage("Invalid UUID format: " + ex.getMessage());
             return serviceResponse;
         }
 

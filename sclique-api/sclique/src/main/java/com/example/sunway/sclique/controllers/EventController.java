@@ -3,16 +3,20 @@ package com.example.sunway.sclique.controllers;
 import com.example.sunway.sclique.models.CreateEventRequest;
 import com.example.sunway.sclique.models.SearchEventsRequest;
 import com.example.sunway.sclique.services.IEventService;
+
 import jakarta.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import static com.example.sunway.sclique.utils.ResponseUtil.handleServiceResponse;
 
+@Validated
 @RestController
-@RequestMapping("/api/v1/events")
+@RequestMapping("/api/v1/event")
 public class EventController {
     private final IEventService eventService;
 
@@ -22,30 +26,15 @@ public class EventController {
     }
 
     @GetMapping("/search")
-    public ResponseEntity<?> searchEvents(@RequestParam SearchEventsRequest request) {
-
-        var serviceResponse = eventService.getEventTitleByMatchingIdOrTitle(request);
-
-        if (serviceResponse.isSuccess()){
-            return ResponseEntity.ok(serviceResponse.getData());
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(serviceResponse.getMessage());
-        }
+    public ResponseEntity<?> searchEvents(@ModelAttribute @Valid SearchEventsRequest searchEventsRequest) {
+        var serviceResponse = eventService.getEventTitleByMatchingIdOrTitle(searchEventsRequest);
+        return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
 
     @PostMapping()
-    public ResponseEntity<?> createEvent(@RequestBody @Valid CreateEventRequest createEventRequest) {
-
+    public ResponseEntity<?> createEvent(@RequestBody CreateEventRequest createEventRequest) {
         var serviceResponse = eventService.createEvent(createEventRequest);
+        return handleServiceResponse(serviceResponse, HttpStatus.CREATED);
 
-        if (serviceResponse.isSuccess()) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(serviceResponse.isSuccess());
-        }
-        else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(serviceResponse.getMessage());
-        }
     }
-
-
 }

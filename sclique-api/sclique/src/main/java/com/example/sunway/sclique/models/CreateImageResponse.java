@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class SaveImageResponse {
+public class CreateImageResponse {
     private String mimeType;
     private String fileName;
     private Long fileSize;

@@ -8,6 +8,6 @@ import lombok.*;
 @Setter
 public class ServiceResponse<T> {
     private boolean isSuccess = false;
-    private String message;
+    private String errorMessage;
     private T data;
 }
