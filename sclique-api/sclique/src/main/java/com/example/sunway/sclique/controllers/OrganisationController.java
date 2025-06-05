@@ -22,7 +22,7 @@ public class OrganisationController {
         this.organisationService = organisationService;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search/names")
     public ResponseEntity<?> searchOrganisation(@ModelAttribute @Valid SearchOrganisationsRequest searchOrganisationsRequest) {
         var serviceResponse = organisationService.getOrganisationNameByMatchingIdOrTitle(searchOrganisationsRequest);
 

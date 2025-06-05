@@ -25,7 +25,7 @@ public class EventController {
         this.eventService = eventService;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/search/titles")
     public ResponseEntity<?> searchEvents(@ModelAttribute @Valid SearchEventsRequest searchEventsRequest) {
         var serviceResponse = eventService.getEventTitleByMatchingIdOrTitle(searchEventsRequest);
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
