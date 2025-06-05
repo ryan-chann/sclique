@@ -1,1 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito%20Sans:bold,bolditalic,italic");
+@import url("https://fonts.googleapis.com/css?family=Muli%20Sans:bold,bolditalic,italic");
 @import "tailwindcss";
+
+@theme {
+}

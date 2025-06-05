@@ -22,7 +22,7 @@ export default function SearchBar() {
                     <button
                         type="button"
                         onClick={() => setQuery('')}
-                        className="text-gray-700 hover:text-black mx-3"
+                        className="text-gray-700 hover:text-black mx-3 cursor-pointer"
                     >
                         <X size={20} />
                     </button>
@@ -30,7 +30,7 @@ export default function SearchBar() {
                     <div className="w-[40px]" />
                 )}
 
-                <Button variantStyle="withFill" size="medium" icon={Search} className="rounded-xl" />
+                <Button variantStyle="withFill" size="medium" icon={Search} />
             </form>
         </div>
     );
