@@ -1,37 +1,89 @@
 "use client";
 
-import { useState } from 'react';
-import { Search, X } from 'lucide-react';
+import {
+    useState,
+    useEffect
+} from 'react';
+
+import {
+    Search,
+    X
+} from 'lucide-react';
+
 import Button from '@/components/Button';
+import SearchEventOrganisationModal from './SearchEventOrganisationModal';
 
 export default function SearchBar() {
     const [query, setQuery] = useState('');
+    const [showModal, setShowModal] = useState(false);
+    const [events, setEvents] = useState([]);
+    const [organisations, setOrganisations] = useState([]);
+
+    useEffect(() => {
+        const delayDebounce = setTimeout(() => {
+            if (query.trim()) {
+                setShowModal(true);
+                fetchData(query);
+            } else {
+                setShowModal(false);
+                setEvents([]);
+                setOrganisations([]);
+            }
+        }, 300);
+
+        return () => clearTimeout(delayDebounce);
+    }, [query]);
+
+    const fetchData = async (searchQuery: string) => {
+        try {
+            const [orgRes, eventRes] = await Promise.all([
+                fetch(`http://localhost:8080/api/v1/organisation/search/names?page=0&pageSize=5&query=${searchQuery}`),
+                fetch(`http://localhost:8080/api/v1/event/search/titles?page=0&pageSize=5&query=${searchQuery}`)
+            ]);
+            const orgData = await orgRes.json();
+            const eventData = await eventRes.json();
+
+            setOrganisations(orgData?.content || []);
+            setEvents(eventData?.content || []);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
     return (
-        <div className="w-full max-w-xl mx-auto p-2">
-            <form className="flex items-center rounded-2xl bg-white shadow-md px-4 py-2">
-                <input
-                    type="text"
-                    placeholder="Placeholder"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                    className="flex-grow px-4 py-2 text-gray-700 focus:outline-none"
+        <>
+            <div className="max-w-[640px] mx-auto p-2">
+                <form className="flex items-center rounded-2xl bg-white shadow-md px-4 py-2">
+                    <input
+                        type="text"
+                        placeholder="Search for events or organisations"
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        className="flex-grow px-4 py-2 text-gray-700 focus:outline-none"
+                    />
+
+                    {query ? (
+                        <button
+                            type="button"
+                            onClick={() => setQuery('')}
+                            className="text-gray-700 hover:text-black mx-3 cursor-pointer"
+                        >
+                            <X size={20} />
+                        </button>
+                    ) : (
+                        <div className="w-[40px]" />
+                    )}
+
+                    <Button variantStyle="withFill" size="medium" icon={Search} />
+                </form>
+            </div>
+
+            {showModal && (
+                <SearchEventOrganisationModal
+                    events={events}
+                    organisations={organisations}
                 />
-
-                {query ? (
-                    <button
-                        type="button"
-                        onClick={() => setQuery('')}
-                        className="text-gray-700 hover:text-black mx-3 cursor-pointer"
-                    >
-                        <X size={20} />
-                    </button>
-                ) : (
-                    <div className="w-[40px]" />
-                )}
-
-                <Button variantStyle="withFill" size="medium" icon={Search} />
-            </form>
-        </div>
+            )}
+        </>
     );
 }

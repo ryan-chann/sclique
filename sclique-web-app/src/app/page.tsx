@@ -1,4 +1,5 @@
 import SearchBar from '@/components/SearchBar';
+import SearchEventOrganisationModal from '@/components/SearchEventOrganisationModal';
 
 export default function Home() {
   return (

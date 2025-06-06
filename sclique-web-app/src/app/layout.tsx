@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="mt-6 ml-[30px] bg-[#F5F5F5]">
+      <body className="mt-6 mx-[30px] bg-[#F5F5F5]">
         <Header />
         {children}
       </body>
