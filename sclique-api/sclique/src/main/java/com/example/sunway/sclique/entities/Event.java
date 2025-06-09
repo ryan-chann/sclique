@@ -55,5 +55,13 @@ public class Event extends EntityBase {
             mappedBy = "event",
             orphanRemoval = true
     )
-    private List<EventFee> eventFee;
+    private List<EventFee> eventFees;
+
+    @OneToMany(
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL,
+            mappedBy = "event",
+            orphanRemoval = true
+    )
+    private List<EventSession> eventSessions;
 }
