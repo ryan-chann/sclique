@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from '@/components/Header';
-import SearchBar from '@/components/SearchBar';
 
 export const metadata: Metadata = {
   title: "Search Events & Organisations",
