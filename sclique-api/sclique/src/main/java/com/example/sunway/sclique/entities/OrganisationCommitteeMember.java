@@ -2,6 +2,7 @@ package com.example.sunway.sclique.entities;
 
 import com.example.sunway.sclique.entities.base.EntityBase;
 
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
@@ -32,4 +33,9 @@ public class OrganisationCommitteeMember extends EntityBase {
     @Size(max = 128)
     @Column(length = 128)
     private String position;
+
+    @ManyToOne
+    @JoinColumn(name = "manager_id")
+    @Nullable
+    private OrganisationCommitteeMember manager;
 }

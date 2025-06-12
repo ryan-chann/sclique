@@ -1,135 +1,112 @@
 [
   {
-    "title": "Tech Conference 2025",
-    "description": "A gathering of top tech minds to discuss the future of AI and software.",
-    "venue": "Sunway Pyramid Convention Centre",
+    "title": "Viper Beach Challenge",
+    "description": "An adrenaline-packed obstacle race along the scenic coastline. Test your strength, speed, and teamwork.",
+    "venue": "Sunway Lagoon Beach Zone",
     "durationInMinutes": 180,
-    "participationLink": "https://events.example.com/tech-conference-2025",
-    "eventFee": [
-      {
-        "type": "General",
-        "price": 50.0
-      }
-    ]
-  },
-  {
-    "title": "Startup Pitch Night",
-    "description": "Early-stage startups pitch to a panel of investors.",
-    "venue": "Sunway Innovation Lab",
-    "durationInMinutes": 120,
-    "participationLink": "https://events.example.com/startup-pitch-night",
-    "eventFee": [
-      {
-        "type": "Entry",
-        "price": 20.0
-      }
-    ]
-  },
-  {
-    "title": "Creative Writing Workshop",
-    "description": "Interactive session on storytelling and publishing tips.",
-    "venue": "Sunway Library Room B1",
-    "durationInMinutes": 90,
-    "participationLink": "https://events.example.com/creative-writing-workshop",
-    "eventFee": [
-      {
-        "type": "Workshop Fee",
-        "price": 15.0
-      }
-    ]
-  },
-  {
-    "title": "AI in Healthcare Forum",
-    "description": "Experts discuss the role of AI in transforming healthcare.",
-    "venue": "Sunway Medical Auditorium",
-    "durationInMinutes": 150,
-    "participationLink": "https://events.example.com/ai-healthcare-forum",
-    "eventFee": [
-      {
-        "type": "Professional",
-        "price": 75.0
-      },
-      {
-        "type": "Student",
-        "price": 30.0
-      }
-    ]
-  },
-  {
-    "title": "Career Fair 2025",
-    "description": "Meet top employers and explore job opportunities.",
-    "venue": "Sunway University Hall",
-    "durationInMinutes": 240,
-    "participationLink": "https://events.example.com/career-fair-2025",
-    "eventFee": [
-      {
-        "type": "Free",
-        "price": 0.0
-      }
-    ]
-  },
-  {
-    "title": "Python for Beginners",
-    "description": "Learn the basics of Python programming in a hands-on setting.",
-    "venue": "Lab 301, Sunway University",
-    "durationInMinutes": 120,
-    "participationLink": "https://events.example.com/python-for-beginners",
-    "eventFee": [
+    "participationLink": "#",
+    "eventFees": [
       {
         "type": "Standard",
         "price": 25.0
-      }
-    ]
-  },
-  {
-    "title": "Photography Masterclass",
-    "description": "Improve your photography skills with a pro photographer.",
-    "venue": "Studio A, Sunway",
-    "durationInMinutes": 180,
-    "participationLink": "https://events.example.com/photography-masterclass",
-    "eventFee": [
+      },
       {
-        "type": "Entry",
-        "price": 40.0
+        "type": "VIP",
+        "price": 50.0
+      }
+    ],
+    "eventSessions": [
+      {
+        "session": "2025-07-01T08:00:00.000Z"
       }
     ]
   },
   {
-    "title": "Blockchain Basics",
-    "description": "Demystifying blockchain and its real-world applications.",
-    "venue": "Sunway FinTech Hub",
+    "title": "Sunway Got Talent",
+    "description": "A talent show where students showcase their extraordinary skills in music, dance, magic, and more.",
+    "venue": "Sunway University Auditorium",
+    "durationInMinutes": 150,
+    "participationLink": "#",
+    "eventFees": [
+      {
+        "type": "General Admission",
+        "price": 5.0
+      }
+    ],
+    "eventSessions": [
+      {
+        "session": "2025-07-15T19:00:00.000Z"
+      },
+      {
+        "session": "2025-07-16T19:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "title": "Swimming Gala",
+    "description": "Annual swimming competition for all levels featuring freestyle, backstroke, breaststroke, and butterfly events.",
+    "venue": "Sunway Swimming Complex",
+    "durationInMinutes": 240,
+    "participationLink": "#",
+    "eventFees": [
+      {
+        "type": "Entry Fee",
+        "price": 10.0
+      }
+    ],
+    "eventSessions": [
+      {
+        "session": "2025-08-05T10:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "title": "Basketball Competition",
+    "description": "Inter-university basketball tournament with knockout rounds and exciting prizes.",
+    "venue": "Sunway Sports Hall",
+    "durationInMinutes": 180,
+    "participationLink": "#",
+    "eventFees": [
+      {
+        "type": "Team Registration",
+        "price": 50.0
+      },
+      {
+        "type": "Spectator Pass",
+        "price": 2.0
+      }
+    ],
+    "eventSessions": [
+      {
+        "session": "2025-07-20T14:00:00.000Z"
+      },
+      {
+        "session": "2025-07-21T14:00:00.000Z"
+      },
+      {
+        "session": "2025-07-22T14:00:00.000Z"
+      }
+    ]
+  },
+  {
+    "title": "Sunset Yoga by the Lake",
+    "description": "Relax and rejuvenate with a serene yoga session at sunset overlooking the lake.",
+    "venue": "Sunway South Quay Lake",
     "durationInMinutes": 90,
-    "participationLink": "https://events.example.com/blockchain-basics",
-    "eventFee": [
+    "participationLink": "#",
+    "eventFees": [
       {
-        "type": "Regular",
-        "price": 20.0
+        "type": "Yoga Mat Included",
+        "price": 15.0
+      },
+      {
+        "type": "Bring Your Own Mat",
+        "price": 8.0
       }
-    ]
-  },
-  {
-    "title": "UI/UX Design Sprint",
-    "description": "Collaborative design challenge focused on solving real problems.",
-    "venue": "Sunway iLabs Makerspace",
-    "durationInMinutes": 210,
-    "participationLink": "https://events.example.com/ui-ux-design-sprint",
-    "eventFee": [
+    ],
+    "eventSessions": [
       {
-        "type": "Participant",
-        "price": 35.0
-      }
-    ]
-  },
-  {
-    "title": "Public Speaking Bootcamp",
-    "description": "Enhance your public speaking and presentation skills.",
-    "venue": "Room A2, Sunway Business School",
-    "durationInMinutes": 180,
-    "participationLink": "https://events.example.com/public-speaking-bootcamp",
-    "eventFee": [
-      {
-        "type": "Workshop Fee",
-        "price": 30.0
+        "session": "2025-06-21T18:30:00.000Z"
       }
     ]
   }

@@ -33,28 +33,28 @@ public class ImageServiceImpl implements IImageService {
         this.imageMapper = imageMapper;
     }
 
-    public ServiceResponse<CreateImageResponse> saveEventAdvertisementImage(MultipartFile eventAdvertisementImage, CreateImageRequest request) throws IOException {
+    public ServiceResponse<CreateImageResponse> saveImage(MultipartFile imageFile, CreateImageRequest request) throws IOException {
         var serviceResponse = new ServiceResponse<CreateImageResponse>();
         var saveImageResponse = new CreateImageResponse();
 
-        BufferedImage bufferedImage = ImageIO.read(eventAdvertisementImage.getInputStream());
+        BufferedImage bufferedImage = ImageIO.read(imageFile.getInputStream());
 
         if (bufferedImage == null) {
-            serviceResponse.setErrorMessage("File: " + eventAdvertisementImage.getOriginalFilename() + " is either empty or not an image");
+            serviceResponse.setErrorMessage("File: " + imageFile.getOriginalFilename() + " is either empty or not an image");
             return serviceResponse;
         }
 
         Image image = imageMapper.saveImageRequestToImage(request);
-        image.setFileName(eventAdvertisementImage.getOriginalFilename());
-        image.setMimeType(eventAdvertisementImage.getContentType());
-        image.setImageData(eventAdvertisementImage.getBytes());
-        image.setFileSize(eventAdvertisementImage.getSize());
+        image.setFileName(imageFile.getOriginalFilename());
+        image.setMimeType(imageFile.getContentType());
+        image.setImageData(imageFile.getBytes());
+        image.setFileSize(imageFile.getSize());
 
         imageRepository.save(image);
 
-        saveImageResponse.setFileSize(eventAdvertisementImage.getSize());
-        saveImageResponse.setMimeType(eventAdvertisementImage.getContentType());
-        saveImageResponse.setFileName(eventAdvertisementImage.getOriginalFilename());
+        saveImageResponse.setFileSize(imageFile.getSize());
+        saveImageResponse.setMimeType(imageFile.getContentType());
+        saveImageResponse.setFileName(imageFile.getOriginalFilename());
 
         serviceResponse.setData(saveImageResponse);
         serviceResponse.setSuccess(true);

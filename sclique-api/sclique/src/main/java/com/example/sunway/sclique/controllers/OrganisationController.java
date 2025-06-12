@@ -29,6 +29,13 @@ public class OrganisationController {
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
 
+    @GetMapping("/search/listing")
+    public ResponseEntity<?> searchOrganisationWithImage(@ModelAttribute @Valid SearchOrganisationsRequest searchOrganisationsRequest) {
+        var serviceResponse = organisationService.getOrganisationNameAndImageByMatchingTitle(searchOrganisationsRequest);
+
+        return handleServiceResponse(serviceResponse, HttpStatus.OK);
+    }
+
     @PostMapping()
     public ResponseEntity<?> createOrganisation(@RequestBody @Valid CreateOrganisationRequest request) {
         var serviceResponse = organisationService.createOrganisation(request);

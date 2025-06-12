@@ -18,4 +18,9 @@ public interface IEventRepository extends JpaRepository<Event, UUID>
         "WHERE LOWER(event.title) LIKE LOWER(CONCAT('%', ?1 , '%')) OR str(event.id) = ?1"
     )
     Page<String> findEventTitleByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
+
+//    @Query(
+//        "SELECT"
+//    )
+//    Page<> findEventSummaryByTitleContainingIgnoreCase(String query, Pageable pageable);
 }

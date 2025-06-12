@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface IImageService {
-    ServiceResponse<CreateImageResponse> saveEventAdvertisementImage(MultipartFile eventAdvertisementImage, CreateImageRequest request) throws IOException;
+    ServiceResponse<CreateImageResponse> saveImage(MultipartFile eventAdvertisementImage, CreateImageRequest request) throws IOException;
 
     ServiceResponse<List<GetImageByEntityIdResponse>> getImageByEntityId(String entityIdString);
 }

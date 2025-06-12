@@ -1,8 +1,11 @@
 package com.example.sunway.sclique.services.implementation;
 
 import com.example.sunway.sclique.entities.Organisation;
+import com.example.sunway.sclique.enums.EntityType;
+import com.example.sunway.sclique.enums.ImageType;
 import com.example.sunway.sclique.mapper.IOrganisationMapper;
 import com.example.sunway.sclique.models.CreateOrganisationRequest;
+import com.example.sunway.sclique.models.GetOrganisationNameAndImageResponse;
 import com.example.sunway.sclique.models.SearchOrganisationsRequest;
 import com.example.sunway.sclique.models.ServiceResponse;
 import com.example.sunway.sclique.repositories.IOrganisationRepository;
@@ -12,6 +15,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Base64;
 
 @Service
 public class OrganisationServiceImpl implements IOrganisationService {
@@ -42,8 +48,7 @@ public class OrganisationServiceImpl implements IOrganisationService {
         return response;
     }
 
-    public ServiceResponse<Page<String>> getOrganisationNameByMatchingIdOrTitle(SearchOrganisationsRequest searchOrganisationsRequest)
-    {
+    public ServiceResponse<Page<String>> getOrganisationNameByMatchingIdOrTitle(SearchOrganisationsRequest searchOrganisationsRequest) {
         var response = new ServiceResponse<Page<String>>();
 
         if(searchOrganisationsRequest == null) {
@@ -56,6 +61,42 @@ public class OrganisationServiceImpl implements IOrganisationService {
         Page<String> organisationNamePage = organisationRepository.findOrganisationNameByIdOrTitleContainingIgnoreCase(searchOrganisationsRequest.getQuery(), pageable);
 
         response.setData(organisationNamePage);
+        response.setSuccess(true);
+
+        return response;
+    }
+
+
+    @Transactional
+    public ServiceResponse<Page<GetOrganisationNameAndImageResponse>> getOrganisationNameAndImageByMatchingTitle(SearchOrganisationsRequest searchOrganisationsRequest) {
+        var response = new ServiceResponse<Page<GetOrganisationNameAndImageResponse>>();
+
+        if (searchOrganisationsRequest == null) {
+            response.setErrorMessage("Request is null");
+            return response;
+        }
+
+        Pageable pageable = PageRequest.of(
+                searchOrganisationsRequest.getPage(),
+                searchOrganisationsRequest.getPageSize()
+        );
+
+        Page<Object[]> repositoryResponsePage = organisationRepository.findOrganisationNameImageByTitleContainingIgnoreCase(
+                searchOrganisationsRequest.getQuery(),
+                EntityType.ORGANISATION,
+                ImageType.ORGANISATION_PROFILE_IMAGE,
+                pageable
+        );
+
+        Page<GetOrganisationNameAndImageResponse> serviceResponsePage = repositoryResponsePage.map(row -> {
+            String name = (String) row[0];
+            byte[] imageBytes = (byte[]) row[1];
+            String base64Image = imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null;
+
+            return new GetOrganisationNameAndImageResponse(name, base64Image);
+        });
+
+        response.setData(serviceResponsePage);
         response.setSuccess(true);
 
         return response;

@@ -67,4 +67,15 @@ public class EventServiceImpl implements IEventService {
 
         return response;
     }
+
+    public ServiceResponse<Page<String>> getEventSummaryListing(SearchEventsRequest searchEventsRequest)
+    {
+        var response = new ServiceResponse<Page<String>>();
+
+        if (searchEventsRequest == null){
+            response.setErrorMessage("Request is null");
+            return response;
+        }
+        return response;
+    }
 }
