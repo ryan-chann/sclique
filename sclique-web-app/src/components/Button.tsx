@@ -1,5 +1,5 @@
 import { ButtonProps } from "@/lib/props/button";
-import { buttonVariants, getIconSize } from "@/lib/variants/button";
+import { buttonVariants } from "@/lib/variants/button";
 
 import { cn } from "@/lib/utils"
 
@@ -20,7 +20,7 @@ export default function Button({
         >
             {Icon && (
                 <Icon
-                    className={cn(text && "mr-2", getIconSize(size))}
+                    className={cn(text && "mr-2", "w-full h-full")}
                 />
             )}
             {text && <span>{text}</span>}

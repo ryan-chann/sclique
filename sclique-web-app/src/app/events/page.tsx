@@ -12,28 +12,34 @@ export default function Events() {
 
   return (
     <main className="mt-[14px]">
-      <search className="flex flex-row gap-[34px]">
-        <SearchBar
-          query={query}
-          onQueryChange={setQuery}
-          corner="none"
-          placeholder="Search for Events"
-          containerProps={{ className: "p-2 w-[462px]" }}
-          modalProps={{ className: "w-[446px] mt-2"}}
-          showModal={showModal}
-          events={events}
-          organisations={[]} // not needed here
-          variant="events"
-        />
+        <search className="mt-[14px] flex flex-row gap-[34px]">
+            <SearchBar
+                query={query}
+                onQueryChange={setQuery}
+                corner="none"
+                placeholder="Search for Events"
+                containerProps={{ className: "p-2 w-[462px]" }}
+                modalProps={{ className: "w-[446px] mt-2"}}
+                showModal={showModal}
+                events={events}
+                organisations={[]}
+                variant="events"
+            />
 
-        <Button
-          variantStyle="withoutFill"
-          size="large"
-          icon={ListFilter}
-          text="Filter"
-          className="h-[40px] self-center"
-        />
-      </search>
+            <Button
+                variantStyle="withoutFill"
+                size="large"
+                icon={ListFilter}
+                text="Filter"
+                className="h-[40px] self-center"
+            />
+        </search>
+
+        <h1 className="mt-4 ml-2 font-[Muli] font-semibold text-[36px] tracking-[0.014] leading-[1.72]">Search For <span className="text-[#1677FF]">Halloween</span></h1>
+
+        <section>
+
+        </section>
     </main>
   );
 }

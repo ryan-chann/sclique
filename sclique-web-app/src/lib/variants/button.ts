@@ -1,14 +1,5 @@
 import { cva } from "class-variance-authority";
 
-const iconSizes = {
-  small: "w-[14px] h-[14px]",
-  medium: "w-[16px] h-[16px]",
-  large: "w-[20px] h-[20px]",
-  xlarge: "w-[26px] h-[26px]",
-  default: "w-[16px] h-[16px]",
-};
-type IconSizeKey = keyof typeof iconSizes;
-
 export const buttonVariants = cva(
   "flex flex-row justify-center items-center disabled:opacity-56 font-[Nunito_Sans] font-bold tracking-[0.015] cursor-pointer",
   {
@@ -32,7 +23,3 @@ export const buttonVariants = cva(
     },
   }
 );
-
-export function getIconSize(size: IconSizeKey | null | undefined): string {
-  return iconSizes[size ?? "default"];
-}

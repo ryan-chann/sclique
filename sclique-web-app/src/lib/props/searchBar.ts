@@ -14,4 +14,5 @@ export interface SearchBarProps extends FormVariants {
   formProps?: React.FormHTMLAttributes<HTMLFormElement>;
   modalProps?: React.HTMLAttributes<HTMLDivElement>;
   variant?: "events" | "organisations" | "eventsOrganisations";
+  onSearchSubmit?: () => void;
 }

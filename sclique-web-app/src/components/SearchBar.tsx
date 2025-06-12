@@ -22,7 +22,8 @@ export default function SearchBar({
   onQueryChange,
   showModal,
   events,
-  organisations
+  organisations,
+  onSearchSubmit,
 }: SearchBarProps & {
   query: string;
   onQueryChange: (q: string) => void;
@@ -38,6 +39,10 @@ export default function SearchBar({
     >
       <form
         ref={formRef}
+        onSubmit={(e) => {
+          e.preventDefault();
+          onSearchSubmit?.();
+        }}
         className={cn(searchBarFormVariants({ corner }), formProps?.className)}
         {...formProps}
       >

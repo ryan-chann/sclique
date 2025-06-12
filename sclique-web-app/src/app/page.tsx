@@ -7,7 +7,7 @@ import { useState } from "react";
 
 export default function Home() {
   const [query, setQuery] = useState("");
-  const { showModal, events, organisations } = useSearch(query, "eventsOrganisations");
+const { showModal, events, organisations } = useSearch(query, "eventsOrganisations");
 
   return (
     <main className="flex flex-col content-center mt-33 gap-10">
