@@ -34,6 +34,10 @@ export default function Organisations() {
     setShowModal(false);
   };
 
+  const handlePageChange = (newPage: number) => {
+    router.push(`/organisations?query=${encodeURIComponent(listingQuery)}&page=${newPage}`);
+  };
+
   return (
     <main className="mt-[14px]">
       <search className="mt-[14px] flex flex-row gap-[34px]">
@@ -70,6 +74,7 @@ export default function Organisations() {
                 key={i}
                 name={org.name}
                 imageDataBase64={org.imageDataBase64}
+                mimeType={org.mimeType}
               />
             ))
           ) : (
@@ -77,7 +82,11 @@ export default function Organisations() {
           )}
 
           <div className="col-span-2 flex justify-end mt-4">
-            <Pagination />
+            <Pagination
+              page={page}
+              totalPages={data?.totalPages || 1}
+              onPageChange={handlePageChange}
+            />
           </div>
         </div>
       </section>

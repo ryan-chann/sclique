@@ -2,10 +2,11 @@ import Button from "@/components/Button";
 import Image from "next/image";
 import { OrganisationListingProps } from "@/lib/props/organisationListing";
 
-export default function OrganisationListingCard({ name, imageDataBase64 }: OrganisationListingProps) {
-  const imageSrc = imageDataBase64
-    ? `data:image/jpeg;base64,${imageDataBase64}`
-    : null;
+export default function OrganisationListingCard({ name, imageDataBase64, mimeType }: OrganisationListingProps) {
+  const imageSrc =
+    imageDataBase64 && mimeType
+      ? `data:${mimeType};base64,${imageDataBase64}`
+      : null;
 
   return (
     <article className="z-40 drop-shadow-md flex flex-row max-w-[601px] w-[601px] h-[160px] bg-[#FFFFFF] border border-[#BFBFBF] rounded-sm overflow-hidden">

@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import { useSearch } from "@/lib/hooks/search";
 import { ListFilter } from "lucide-react";
 import { useState } from "react";
+import EventListingCard from "@/components/EventListingCard";
 
 export default function Events() {
   const [query, setQuery] = useState("");
@@ -38,7 +39,7 @@ export default function Events() {
         <h1 className="mt-4 ml-2 font-[Muli] font-semibold text-[36px] tracking-[0.014] leading-[1.72]">Search For <span className="text-[#1677FF]">Halloween</span></h1>
 
         <section>
-
+          <EventListingCard />
         </section>
     </main>
   );

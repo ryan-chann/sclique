@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { searchEvents, searchOrganisations } from "@/lib/apis/search";
 import { fetchOrganisations } from "@/lib/apis/organisation";
 
-import { Page } from "@/lib/props/page";
+import { PageProps } from "@/lib/props/page";
 import { OrganisationListingProps } from "@/lib/props/organisationListing";
 
 
@@ -63,7 +63,7 @@ export function useOrganisationSearch(
   page: number,
   pageSize: number
 ) {
-  const [data, setData] = useState<Page<OrganisationListingProps> | null>(null);
+  const [data, setData] = useState<PageProps<OrganisationListingProps> | null>(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
