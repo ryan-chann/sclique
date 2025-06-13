@@ -91,9 +91,11 @@ public class OrganisationServiceImpl implements IOrganisationService {
         Page<GetOrganisationNameAndImageResponse> serviceResponsePage = repositoryResponsePage.map(row -> {
             String name = (String) row[0];
             byte[] imageBytes = (byte[]) row[1];
+            String mimeType = (String) row[2];
+
             String base64Image = imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null;
 
-            return new GetOrganisationNameAndImageResponse(name, base64Image);
+            return new GetOrganisationNameAndImageResponse(name, base64Image, mimeType);
         });
 
         response.setData(serviceResponsePage);

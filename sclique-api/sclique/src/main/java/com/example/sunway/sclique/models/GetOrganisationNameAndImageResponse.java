@@ -10,4 +10,5 @@ import lombok.Setter;
 public class GetOrganisationNameAndImageResponse {
     private String name;
     private String imageDataBase64;
+    private String mimeType;
 }

@@ -25,7 +25,7 @@ public interface IOrganisationRepository extends JpaRepository<Organisation, UUI
     Page<String> findOrganisationNameByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
 
     @Query("""
-        SELECT organisation.name, image.imageData
+        SELECT organisation.name, image.imageData, image.mimeType
         FROM Organisation organisation
         LEFT JOIN Image image 
             ON image.entityId = organisation.id 
