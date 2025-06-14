@@ -93,9 +93,11 @@ public class OrganisationServiceImpl implements IOrganisationService {
             byte[] imageBytes = (byte[]) row[1];
             String mimeType = (String) row[2];
 
-            String base64Image = imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null;
-
-            return new GetOrganisationNameAndImageResponse(name, base64Image, mimeType);
+            return new GetOrganisationNameAndImageResponse(
+                name,
+                imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null,
+                mimeType
+            );
         });
 
         response.setData(serviceResponsePage);

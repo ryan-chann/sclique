@@ -1,0 +1,25 @@
+{
+  "title": "Viper Challenge King of Mountain 2025",
+  "description": "Experience the ultimate obstacle race through Sunway's challenging terrain. Test your physical and mental endurance in this adrenaline-pumping event.",
+  "venue": "Sunway University Foyer",
+  "durationInMinutes": 90,
+  "participationLink": "https://sunway.edu.my/viper-challenge",
+  "eventFees": [
+    {
+      "type": "Student",
+      "price": 10.0
+    },
+    {
+      "type": "General",
+      "price": 30.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-06-15T09:00:00"
+    },
+    {
+      "session": "2025-06-16T11:00:00"
+    }
+  ]
+}

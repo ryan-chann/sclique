@@ -1,0 +1,30 @@
+{
+  "title": "Sunway Sustainability Week",
+  "description": "A week-long event dedicated to raising awareness about environmental issues and sustainable practices. Join various workshops, talks, and activities focused on creating a more sustainable future.",
+  "venue": "Multiple Locations across Sunway Campus",
+  "durationInMinutes": 480,
+  "participationLink": "https://sunway.edu.my/sustainability-week",
+  "eventFees": [
+    {
+      "type": "All Participants",
+      "price": 0.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-09-01T09:00:00"
+    },
+    {
+      "session": "2025-09-02T09:00:00"
+    },
+    {
+      "session": "2025-09-03T09:00:00"
+    },
+    {
+      "session": "2025-09-04T09:00:00"
+    },
+    {
+      "session": "2025-09-05T09:00:00"
+    }
+  ]
+}

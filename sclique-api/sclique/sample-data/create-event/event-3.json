@@ -1,0 +1,30 @@
+{
+  "title": "Entrepreneurship Workshop Series",
+  "description": "Learn the fundamentals of starting your own business from industry experts. This workshop covers business planning, market research, funding opportunities, and marketing strategies.",
+  "venue": "Sunway Innovation Labs",
+  "durationInMinutes": 120,
+  "participationLink": "https://sunway.edu.my/entrepreneur-workshop",
+  "eventFees": [
+    {
+      "type": "Sunway Students",
+      "price": 5.0
+    },
+    {
+      "type": "External Students",
+      "price": 15.0
+    },
+    {
+      "type": "Alumni",
+      "price": 20.0
+    },
+    {
+      "type": "Working Professionals",
+      "price": 50.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-08-05T14:00:00"
+    }
+  ]
+}

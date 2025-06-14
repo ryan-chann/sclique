@@ -5,12 +5,13 @@ import com.example.sunway.sclique.models.CreateEventRequest;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 
-@Mapper(componentModel = "spring", uses = IEventFeeMapper.class)
+@Mapper(
+    componentModel = "spring",
+    uses = {IEventFeeMapper.class, IEventSessionMapper.class}
+)
 public interface IEventMapper {
-
     Event createEventRequestToEvent(CreateEventRequest createEventRequest);
 
     @AfterMapping

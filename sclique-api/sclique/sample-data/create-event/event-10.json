@@ -1,0 +1,28 @@
+{
+  "title": "Sunway Debate Championship",
+  "description": "Watch or participate in high-level debates on current social, political, and ethical issues. This championship brings together debaters from universities across Southeast Asia to compete for the prestigious Sunway Cup.",
+  "venue": "Sunway University Jeffrey Cheah Hall",
+  "durationInMinutes": 420,
+  "participationLink": "https://sunway.edu.my/debate-championship",
+  "eventFees": [
+    {
+      "type": "Participant (Team of 3)",
+      "price": 75.0
+    },
+    {
+      "type": "Observer",
+      "price": 5.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-12-05T09:00:00"
+    },
+    {
+      "session": "2025-12-06T09:00:00"
+    },
+    {
+      "session": "2025-12-07T09:00:00"
+    }
+  ]
+}

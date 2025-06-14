@@ -1,0 +1,21 @@
+{
+  "title": "International Cultural Festival",
+  "description": "Celebrate diversity with a showcase of different cultures through food, performances, and exhibitions. Experience traditions from around the world right on campus.",
+  "venue": "Sunway Resort Hotel & Spa",
+  "durationInMinutes": 300,
+  "participationLink": "https://sunway.edu.my/cultural-festival",
+  "eventFees": [
+    {
+      "type": "Standard Entry",
+      "price": 15.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-10-18T12:00:00"
+    },
+    {
+      "session": "2025-10-19T12:00:00"
+    }
+  ]
+}

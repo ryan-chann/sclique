@@ -1,0 +1,22 @@
+{
+  "title": "Tech Talent Hackathon 2025",
+  "description": "Put your coding skills to the test in this 24-hour hackathon. Collaborate with peers to develop innovative solutions to real-world problems and compete for exciting prizes.",
+  "venue": "Sunway Tech Hub",
+  "durationInMinutes": 1440,
+  "participationLink": "https://sunway.edu.my/hackathon",
+  "eventFees": [
+    {
+      "type": "Early Bird Registration",
+      "price": 25.0
+    },
+    {
+      "type": "Regular Registration",
+      "price": 40.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-07-05T09:00:00"
+    }
+  ]
+}

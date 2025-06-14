@@ -1,0 +1,18 @@
+{
+  "title": "Financial Literacy Seminar",
+  "description": "Build a strong foundation in personal finance management with this comprehensive seminar. Topics include budgeting, investing, debt management, and planning for future financial goals.",
+  "venue": "Sunway University Business School",
+  "durationInMinutes": 150,
+  "participationLink": "https://sunway.edu.my/financial-literacy",
+  "eventFees": [
+    {
+      "type": "All Participants",
+      "price": 0.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-07-15T15:00:00"
+    }
+  ]
+}

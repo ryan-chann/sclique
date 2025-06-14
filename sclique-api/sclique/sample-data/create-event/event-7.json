@@ -1,0 +1,29 @@
+{
+  "title": "AI & Machine Learning Conference",
+  "description": "Explore the latest advancements in artificial intelligence and machine learning with leading experts from academia and industry. The conference features keynote speeches, panel discussions, and networking opportunities.",
+  "venue": "Sunway University Lecture Theatre 1",
+  "durationInMinutes": 480,
+  "participationLink": "https://sunway.edu.my/ai-conference",
+  "eventFees": [
+    {
+      "type": "Students",
+      "price": 20.0
+    },
+    {
+      "type": "Academics",
+      "price": 50.0
+    },
+    {
+      "type": "Industry Professionals",
+      "price": 100.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-08-25T08:30:00"
+    },
+    {
+      "session": "2025-08-26T08:30:00"
+    }
+  ]
+}

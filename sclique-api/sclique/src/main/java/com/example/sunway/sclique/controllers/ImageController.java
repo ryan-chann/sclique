@@ -34,7 +34,7 @@ public class ImageController {
         }
     }
 
-    @GetMapping("/images/{entityId}")
+    @GetMapping("/{entityId}")
     public ResponseEntity<?> getImageByEntityId(@PathVariable String entityId) {
         var serviceResponse = imageService.getImageByEntityId(entityId);
 

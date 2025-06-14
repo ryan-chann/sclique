@@ -1,0 +1,24 @@
+{
+  "title": "Wellness & Mental Health Week",
+  "description": "Prioritize your wellbeing with a series of activities focused on mental health awareness, stress management, and mindfulness practices. Participate in yoga sessions, workshops, and counseling services.",
+  "venue": "Sunway Student Center",
+  "durationInMinutes": 240,
+  "participationLink": "https://sunway.edu.my/wellness-week",
+  "eventFees": [
+    {
+      "type": "All Participants",
+      "price": 0.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-11-10T10:00:00"
+    },
+    {
+      "session": "2025-11-11T10:00:00"
+    },
+    {
+      "session": "2025-11-12T10:00:00"
+    }
+  ]
+}

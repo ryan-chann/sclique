@@ -1,0 +1,24 @@
+{
+  "title": "Annual Sunway Career Fair 2025",
+  "description": "Connect with top employers from various industries. This annual event provides opportunities for students to find internships and fresh graduates to secure full-time positions.",
+  "venue": "Sunway University Grand Hall",
+  "durationInMinutes": 360,
+  "participationLink": "https://sunway.edu.my/career-fair",
+  "eventFees": [
+    {
+      "type": "All Participants",
+      "price": 0.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-07-22T10:00:00"
+    },
+    {
+      "session": "2025-07-23T10:00:00"
+    },
+    {
+      "session": "2025-07-24T10:00:00"
+    }
+  ]
+}

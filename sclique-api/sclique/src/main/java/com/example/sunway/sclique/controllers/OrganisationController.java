@@ -30,7 +30,7 @@ public class OrganisationController {
     }
 
     @GetMapping("/search/listing")
-    public ResponseEntity<?> searchOrganisationWithImage(@ModelAttribute @Valid SearchOrganisationsRequest searchOrganisationsRequest) {
+    public ResponseEntity<?> searchEventListing(@ModelAttribute @Valid SearchOrganisationsRequest searchOrganisationsRequest) {
         var serviceResponse = organisationService.getOrganisationNameAndImageByMatchingTitle(searchOrganisationsRequest);
 
         return handleServiceResponse(serviceResponse, HttpStatus.OK);

@@ -1,0 +1,26 @@
+{
+  "title": "Game Development Workshop",
+  "description": "Learn the fundamentals of game design and development using popular tools and frameworks. Create your own simple game by the end of this hands-on workshop led by industry professionals.",
+  "venue": "Sunway Computer Lab 5",
+  "durationInMinutes": 240,
+  "participationLink": "https://sunway.edu.my/game-dev-workshop",
+  "eventFees": [
+    {
+      "type": "Computer Science Students",
+      "price": 15.0
+    },
+    {
+      "type": "Other Students",
+      "price": 25.0
+    },
+    {
+      "type": "External Participants",
+      "price": 40.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-10-11T10:00:00"
+    }
+  ]
+}

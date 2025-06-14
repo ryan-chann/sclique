@@ -1,0 +1,18 @@
+{
+  "title": "Photography Masterclass",
+  "description": "Enhance your photography skills with guidance from professional photographers. This hands-on workshop covers composition techniques, lighting principles, and post-processing fundamentals.",
+  "venue": "Sunway Art Gallery",
+  "durationInMinutes": 180,
+  "participationLink": "https://sunway.edu.my/photo-masterclass",
+  "eventFees": [
+    {
+      "type": "Standard Fee",
+      "price": 35.0
+    }
+  ],
+  "eventSessions": [
+    {
+      "session": "2025-09-20T13:00:00"
+    }
+  ]
+}
