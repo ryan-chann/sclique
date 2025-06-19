@@ -1,3 +1,5 @@
+"use client";
+
 import { EventPriceTableProps } from "@/lib/props/eventPriceTable";
 
 export default function PriceTable({

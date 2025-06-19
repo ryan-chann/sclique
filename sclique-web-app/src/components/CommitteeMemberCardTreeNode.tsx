@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { Mail, Phone } from "lucide-react";
 import { TreeNode } from 'primereact/treenode';

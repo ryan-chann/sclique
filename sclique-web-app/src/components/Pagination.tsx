@@ -1,3 +1,6 @@
+"use client";
+
+
 import Button from "@/components/Button";
 import { PaginationProps } from "@/lib/props/pagination";
 import { ChevronLeft, ChevronRight } from "lucide-react";

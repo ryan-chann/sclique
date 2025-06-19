@@ -1,3 +1,5 @@
+"use client";
+
 import QRCode from "react-qr-code";
 import { ScanToJoinCardProps } from "@/lib/props/scanToJoinCard";
 

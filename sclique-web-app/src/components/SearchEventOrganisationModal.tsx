@@ -1,3 +1,6 @@
+"use client";
+
+
 import { useRouter } from "next/navigation";
 import { SearchResultsProps } from "@/lib/props/searchBarList";
 import SearchBarList from "./SearchBarList";

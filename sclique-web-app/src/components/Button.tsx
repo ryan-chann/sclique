@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonProps } from "@/lib/props/button";
 import { buttonVariants } from "@/lib/variants/button";
 
