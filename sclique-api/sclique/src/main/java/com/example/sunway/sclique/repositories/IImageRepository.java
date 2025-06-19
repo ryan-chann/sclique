@@ -18,5 +18,4 @@ public interface IImageRepository extends JpaRepository<Image, UUID> {
     )
     List<Image> findByEntityId(UUID entityId);
 
-
 }

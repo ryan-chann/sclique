@@ -1,7 +1,7 @@
 package com.example.sunway.sclique.controllers;
 
-import com.example.sunway.sclique.models.CreateOrganisationRequest;
-import com.example.sunway.sclique.models.SearchOrganisationsRequest;
+import com.example.sunway.sclique.models.organisation.CreateOrganisationRequest;
+import com.example.sunway.sclique.models.organisation.SearchOrganisationsRequest;
 import com.example.sunway.sclique.services.IOrganisationService;
 
 import jakarta.validation.Valid;
@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.example.sunway.sclique.utils.ResponseUtil.handleServiceResponse;
 
@@ -37,9 +38,12 @@ public class OrganisationController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createOrganisation(@RequestBody @Valid CreateOrganisationRequest request) {
-        var serviceResponse = organisationService.createOrganisation(request);
-
+    public ResponseEntity<?> createOrganisation(
+            @RequestPart("request") @Valid CreateOrganisationRequest request,
+            @RequestPart("organisationProfileImage") @Valid MultipartFile organisationProfileImage,
+            @RequestPart("organisationCoverImage") MultipartFile organisationCoverImage
+    ) {
+        var serviceResponse = organisationService.createOrganisation(request, organisationProfileImage, organisationCoverImage);
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
 }

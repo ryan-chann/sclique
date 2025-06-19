@@ -18,5 +18,6 @@
     {
       "session": "2025-07-05T09:00:00"
     }
-  ]
+  ],
+  "organiserId": "string"
 }

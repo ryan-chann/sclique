@@ -2,9 +2,9 @@ package com.example.sunway.sclique.services.implementation;
 
 import com.example.sunway.sclique.entities.Image;
 import com.example.sunway.sclique.mapper.IImageMapper;
-import com.example.sunway.sclique.models.CreateImageRequest;
-import com.example.sunway.sclique.models.GetImageByEntityIdResponse;
-import com.example.sunway.sclique.models.CreateImageResponse;
+import com.example.sunway.sclique.models.image.CreateImageRequest;
+import com.example.sunway.sclique.models.image.GetImageByEntityIdResponse;
+import com.example.sunway.sclique.models.image.CreateImageResponse;
 import com.example.sunway.sclique.models.ServiceResponse;
 import com.example.sunway.sclique.repositories.IImageRepository;
 import com.example.sunway.sclique.services.IImageService;
@@ -80,6 +80,7 @@ public class ImageServiceImpl implements IImageService {
         List<GetImageByEntityIdResponse> responseList = images.stream()
                 .map(image -> {
                     GetImageByEntityIdResponse response = new GetImageByEntityIdResponse();
+                    response.setImageType(image.getImageType());
                     response.setFileName(image.getFileName());
                     response.setMimeType(image.getMimeType());
                     response.setFileSize(image.getImageData() != null ? image.getImageData().length : 0);

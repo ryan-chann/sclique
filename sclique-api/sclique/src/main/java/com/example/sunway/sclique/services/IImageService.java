@@ -1,8 +1,8 @@
 package com.example.sunway.sclique.services;
 
-import com.example.sunway.sclique.models.CreateImageRequest;
-import com.example.sunway.sclique.models.GetImageByEntityIdResponse;
-import com.example.sunway.sclique.models.CreateImageResponse;
+import com.example.sunway.sclique.models.image.CreateImageRequest;
+import com.example.sunway.sclique.models.image.GetImageByEntityIdResponse;
+import com.example.sunway.sclique.models.image.CreateImageResponse;
 import com.example.sunway.sclique.models.ServiceResponse;
 import org.springframework.web.multipart.MultipartFile;
 

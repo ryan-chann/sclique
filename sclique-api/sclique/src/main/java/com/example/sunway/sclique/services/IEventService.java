@@ -1,8 +1,6 @@
 package com.example.sunway.sclique.services;
 
-import com.example.sunway.sclique.models.CreateEventRequest;
-import com.example.sunway.sclique.models.GetEventSummaryResponse;
-import com.example.sunway.sclique.models.SearchEventsRequest;
+import com.example.sunway.sclique.models.event.*;
 import com.example.sunway.sclique.models.ServiceResponse;
 
 import org.springframework.data.domain.Page;
@@ -12,7 +10,9 @@ public interface IEventService {
 
     ServiceResponse<Boolean> createEvent(CreateEventRequest createEventRequest, MultipartFile eventAdvertisementImage);
 
-    ServiceResponse<Page<String>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest request);
+    public ServiceResponse<Page<GetEventTitleResponse>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest searchEventsRequest);
 
     ServiceResponse<Page<GetEventSummaryResponse>> getEventSummaryByTitleContainingIgnoreCase(SearchEventsRequest request);
+
+    ServiceResponse<GetEventProfileResponse> getEventProfileById(String eventId);
 }

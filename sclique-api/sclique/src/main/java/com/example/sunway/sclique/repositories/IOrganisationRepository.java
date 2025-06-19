@@ -4,6 +4,7 @@ import com.example.sunway.sclique.entities.Organisation;
 
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
+import com.example.sunway.sclique.models.organisation.GetOrganisationNameResponse;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,14 +17,18 @@ import java.util.UUID;
 public interface IOrganisationRepository extends JpaRepository<Organisation, UUID> {
 
     @Query("""
-        SELECT organisation.name FROM Organisation organisation 
+        SELECT 
+            organisation.id,
+            organisation.name 
+        FROM Organisation organisation 
         WHERE LOWER(organisation.name) LIKE LOWER(CONCAT('%', ?1 , '%')) OR str(organisation.id) = ?1
         ORDER BY organisation.createdAt DESC
     """)
-    Page<String> findOrganisationNameByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
+    Page<GetOrganisationNameResponse> findOrganisationNameByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
 
     @Query("""
         SELECT 
+            organisation.id,
             organisation.name, 
             image.imageData, 
             image.mimeType
@@ -36,4 +41,14 @@ public interface IOrganisationRepository extends JpaRepository<Organisation, UUI
         ORDER BY organisation.createdAt DESC
     """)
     Page<Object[]> findOrganisationNameImageByTitleContainingIgnoreCase(String query, EntityType entityType, ImageType imageType, Pageable pageable);
+
+//    @Query("""
+//        SELECT
+//            organisation.id,
+//            organisation.name,
+//            organisation.description
+//       FROM Organisation organisation
+//       WHERE organisation.id = ?1
+//    """)
+//    Page<Object[]> findOrganisationProfileById(String id);
 }

@@ -49,6 +49,10 @@ public class Event extends EntityBase {
     @Column(length = 256, name = "participation_link")
     private String participationLink;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "organisation_id", nullable = false)
+    private Organisation organiser;
+
     @OneToMany(
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,

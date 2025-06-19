@@ -1,6 +1,6 @@
 package com.example.sunway.sclique.controllers;
 
-import com.example.sunway.sclique.models.CreateImageRequest;
+import com.example.sunway.sclique.models.image.CreateImageRequest;
 import com.example.sunway.sclique.services.IImageService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

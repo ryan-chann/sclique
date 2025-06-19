@@ -1,7 +1,7 @@
 package com.example.sunway.sclique.mapper;
 
 import com.example.sunway.sclique.entities.EventSession;
-import com.example.sunway.sclique.models.CreateEventRequest;
+import com.example.sunway.sclique.models.event.CreateEventRequest;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

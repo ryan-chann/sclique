@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.models;
+package com.example.sunway.sclique.models.image;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

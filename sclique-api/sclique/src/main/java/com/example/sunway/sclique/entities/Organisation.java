@@ -38,6 +38,14 @@ public class Organisation extends EntityBase {
     private String description;
 
     @OneToMany(
+            mappedBy = "organiser",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
+    )
+    private List<Event> events;
+
+    @OneToMany(
             mappedBy = "organisation",
             fetch = FetchType.LAZY,
             orphanRemoval = true

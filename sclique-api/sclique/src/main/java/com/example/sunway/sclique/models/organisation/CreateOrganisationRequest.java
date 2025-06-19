@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.models;
+package com.example.sunway.sclique.models.organisation;
 
 import jakarta.validation.constraints.NotBlank;
 

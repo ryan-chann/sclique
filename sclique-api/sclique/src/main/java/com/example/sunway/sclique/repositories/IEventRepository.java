@@ -16,11 +16,14 @@ import java.util.UUID;
 public interface IEventRepository extends JpaRepository<Event, UUID>
 {
     @Query("""
-        SELECT event.title FROM Event event
+        SELECT 
+            event.id,
+            event.title 
+        FROM Event event
         WHERE LOWER(event.title) LIKE LOWER(CONCAT('%', ?1 , '%')) OR str(event.id) = ?1
         ORDER BY event.createdAt DESC 
     """)
-    Page<String> findEventTitleByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
+    Page<Object[]> findEventTitleByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
 
     @Query("""
         SELECT 

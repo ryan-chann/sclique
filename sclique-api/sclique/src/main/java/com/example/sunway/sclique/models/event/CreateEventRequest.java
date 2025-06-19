@@ -1,4 +1,4 @@
-package com.example.sunway.sclique.models;
+package com.example.sunway.sclique.models.event;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -8,6 +8,7 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -33,6 +34,9 @@ public class CreateEventRequest {
 
     @NotNull(message = "EventSessions is required")
     private List<EventSessionDto> eventSessions;
+
+    @NotNull(message = "OrganiserId is required")
+    private String organiserId;
 
     @Getter
     @Setter

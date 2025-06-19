@@ -3,7 +3,7 @@ package com.example.sunway.sclique.mapper;
 import com.example.sunway.sclique.entities.Image;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
-import com.example.sunway.sclique.models.CreateImageRequest;
+import com.example.sunway.sclique.models.image.CreateImageRequest;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

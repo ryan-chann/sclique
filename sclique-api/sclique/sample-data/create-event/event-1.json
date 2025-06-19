@@ -21,5 +21,6 @@
     {
       "session": "2025-06-16T11:00:00"
     }
-  ]
+  ],
+  "organiserId": "string"
 }

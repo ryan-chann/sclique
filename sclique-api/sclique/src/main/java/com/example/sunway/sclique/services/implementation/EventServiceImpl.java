@@ -1,15 +1,18 @@
 package com.example.sunway.sclique.services.implementation;
 
 import com.example.sunway.sclique.entities.Event;
-import com.example.sunway.sclique.entities.EventFee;
-import com.example.sunway.sclique.entities.EventSession;
+import com.example.sunway.sclique.entities.Organisation;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
 import com.example.sunway.sclique.mapper.IEventMapper;
 import com.example.sunway.sclique.models.*;
+import com.example.sunway.sclique.models.event.*;
+import com.example.sunway.sclique.models.image.CreateImageRequest;
+import com.example.sunway.sclique.models.image.GetImageByEntityIdResponse;
 import com.example.sunway.sclique.repositories.IEventFeeRepository;
 import com.example.sunway.sclique.repositories.IEventRepository;
 import com.example.sunway.sclique.repositories.IEventSessionRepository;
+import com.example.sunway.sclique.repositories.IOrganisationRepository;
 import com.example.sunway.sclique.services.IEventService;
 
 import com.example.sunway.sclique.services.IImageService;
@@ -22,12 +25,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Base64;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class EventServiceImpl implements IEventService {
+    private final IOrganisationRepository organisationRepository;
     private final IEventRepository eventRepository;
     private final IEventMapper eventMapper;
     private final IEventFeeRepository eventFeeRepository;
@@ -36,12 +39,14 @@ public class EventServiceImpl implements IEventService {
 
     @Autowired
     public EventServiceImpl(
+            IOrganisationRepository organisationRepository,
             IEventRepository eventRepository,
             IEventMapper eventMapper,
             IEventFeeRepository eventFeeRepository,
             IEventSessionRepository eventSessionRepository,
             IImageService imageService
     ) {
+        this.organisationRepository = organisationRepository;
         this.eventRepository = eventRepository;
         this.eventMapper = eventMapper;
         this.eventFeeRepository = eventFeeRepository;
@@ -57,7 +62,17 @@ public class EventServiceImpl implements IEventService {
             return response;
         }
 
+        Optional<Organisation> organisationOptional = organisationRepository.findById(UUID.fromString(createEventRequest.getOrganiserId()));
+
+        if (organisationOptional.isEmpty()) {
+            response.setErrorMessage("Organisation not found");
+            return response;
+        }
+
+        Organisation organisation = organisationOptional.get();
+
         Event event = eventMapper.createEventRequestToEvent(createEventRequest);
+        event.setOrganiser(organisation);
 
         Event savedEvent = eventRepository.save(event);
 
@@ -67,10 +82,10 @@ public class EventServiceImpl implements IEventService {
                 ImageType.EVENT_ADVERTISEMENT_IMAGE.getId()
         );
 
-        try{
+        try {
             imageService.saveImage(eventAdvertisementImage, createImageRequest);
         }
-        catch(IOException ioException){
+        catch (IOException ioException) {
             response.setErrorMessage(ioException.getMessage());
             return response;
         }
@@ -81,9 +96,9 @@ public class EventServiceImpl implements IEventService {
         return response;
     }
 
-    public ServiceResponse<Page<String>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest searchEventsRequest)
+    public ServiceResponse<Page<GetEventTitleResponse>> getEventTitleByMatchingIdOrTitle(SearchEventsRequest searchEventsRequest)
     {
-        var response = new ServiceResponse<Page<String>>();
+        var response = new ServiceResponse<Page<GetEventTitleResponse>>();
 
         if (searchEventsRequest == null){
             response.setErrorMessage("Request is null");
@@ -92,9 +107,19 @@ public class EventServiceImpl implements IEventService {
 
         Pageable pageable = PageRequest.of(searchEventsRequest.getPage(), searchEventsRequest.getPageSize());
 
-        Page<String> eventTitlePage =  eventRepository.findEventTitleByIdOrTitleContainingIgnoreCase(searchEventsRequest.getQuery(), pageable);
+        Page<Object[]> repositoryResponsePage = eventRepository.findEventTitleByIdOrTitleContainingIgnoreCase(searchEventsRequest.getQuery(), pageable);
 
-        response.setData(eventTitlePage);
+        Page<GetEventTitleResponse> serviceResponsePage = repositoryResponsePage.map(object -> {
+            UUID eventId = (UUID) object[0];
+            String eventTitle = (String) object[1];
+
+            return new GetEventTitleResponse(
+                eventId.toString(),
+                eventTitle
+            );
+        });
+
+        response.setData(serviceResponsePage);
         response.setSuccess(true);
 
         return response;
@@ -121,12 +146,12 @@ public class EventServiceImpl implements IEventService {
                 pageable
         );
 
-        Page<GetEventSummaryResponse> serviceResponsePage = repositoryResponsePage.map(row -> {
-            UUID eventId = (UUID) row[0];
-            String eventTitle = (String) row[1];
-            String eventVenue = (String) row[2];
-            byte[] imageBytes = (byte[]) row[3];
-            String mimeType = (String) row[4];
+        Page<GetEventSummaryResponse> serviceResponsePage = repositoryResponsePage.map(object -> {
+            UUID eventId = (UUID) object[0];
+            String eventTitle = (String) object[1];
+            String eventVenue = (String) object[2];
+            byte[] imageBytes = (byte[]) object[3];
+            String mimeType = (String) object[4];
 
             List<CreateEventRequest.EventFeeDto> feeDto = eventFeeRepository.findByEventId(eventId).stream()
                     .map(fee -> {
@@ -146,16 +171,104 @@ public class EventServiceImpl implements IEventService {
                     .toList();
 
             return new GetEventSummaryResponse(
-                    eventTitle,
-                    eventVenue,
-                    feeDto,
-                    sessionDto,
-                    imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null,
-                    mimeType
+                eventId.toString(),
+                eventTitle,
+                eventVenue,
+                feeDto,
+                sessionDto,
+                imageBytes != null ? Base64.getEncoder().encodeToString(imageBytes) : null,
+                mimeType
             );
         });
 
         response.setData(serviceResponsePage);
+        response.setSuccess(true);
+        return response;
+    }
+
+    public ServiceResponse<GetEventProfileResponse> getEventProfileById(String eventId) {
+        var response = new ServiceResponse<GetEventProfileResponse>();
+
+        eventId = "21db684c-489c-42ba-96a4-93e95f73374c";
+        Optional<Event> eventOptional = eventRepository.findById(UUID.fromString(eventId));
+        if (eventOptional.isEmpty()) {
+            response.setErrorMessage("Event not found");
+            return response;
+        }
+        Event event = eventOptional.get();
+
+        Optional<Organisation> organisationOptional = organisationRepository.findById(event.getOrganiser().getId());
+        if (organisationOptional.isEmpty()) {
+            response.setErrorMessage("Organisation not found");
+            return response;
+        }
+        Organisation organisation = organisationOptional.get();
+
+        ServiceResponse<List<GetImageByEntityIdResponse>> imageResponse = imageService.getImageByEntityId(event.getId().toString());
+        GetEventProfileResponse.ImageDto eventImage = null;
+
+        if (imageResponse.isSuccess() && !imageResponse.getData().isEmpty()) {
+            Optional<GetImageByEntityIdResponse> coverImageOpt = imageResponse.getData().stream()
+                    .filter(img -> img.getImageType() == ImageType.EVENT_ADVERTISEMENT_IMAGE)
+                    .findFirst();
+
+            if (coverImageOpt.isPresent()) {
+                GetImageByEntityIdResponse imageData = coverImageOpt.get();
+                eventImage = new GetEventProfileResponse.ImageDto();
+                eventImage.setMimeType(imageData.getMimeType());
+                eventImage.setImageDataBase64(imageData.getImageDataBase64());
+            }
+        }
+
+        GetEventProfileResponse.OrganiserDto organiserDto = new GetEventProfileResponse.OrganiserDto();
+        organiserDto.setName(organisation.getName());
+
+        ServiceResponse<List<GetImageByEntityIdResponse>> organiserImageResponse = imageService.getImageByEntityId(organisation.getId().toString());
+
+        if (organiserImageResponse.isSuccess() && !organiserImageResponse.getData().isEmpty()) {
+            Optional<GetImageByEntityIdResponse> logoImageOpt = organiserImageResponse.getData().stream()
+                    .filter(img -> img.getImageType() == ImageType.ORGANISATION_PROFILE_IMAGE)
+                    .findFirst();
+
+            if (logoImageOpt.isPresent()) {
+                GetImageByEntityIdResponse orgImg = logoImageOpt.get();
+                GetEventProfileResponse.ImageDto orgImageDto = new GetEventProfileResponse.ImageDto();
+                orgImageDto.setMimeType(orgImg.getMimeType());
+                orgImageDto.setImageDataBase64(orgImg.getImageDataBase64());
+                organiserDto.setOrganiserImage(orgImageDto);
+            }
+        }
+
+        List<GetEventProfileResponse.EventFeeDto> feeDtos = event.getEventFees().stream()
+                .map(fee -> {
+                    GetEventProfileResponse.EventFeeDto dto = new GetEventProfileResponse.EventFeeDto();
+                    dto.setType(fee.getType());
+                    dto.setPrice(fee.getPrice());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+        List<GetEventProfileResponse.EventSessionDto> sessionDtos = event.getEventSessions().stream()
+                .map(session -> {
+                    GetEventProfileResponse.EventSessionDto dto = new GetEventProfileResponse.EventSessionDto();
+                    dto.setSession(session.getSession());
+                    return dto;
+                })
+                .collect(Collectors.toList());
+
+
+        GetEventProfileResponse profile = new GetEventProfileResponse();
+        profile.setId(event.getId().toString());
+        profile.setName(event.getTitle());
+        profile.setVenue(event.getVenue());
+        profile.setDurationInMinutes(event.getDurationInMinutes());
+        profile.setParticipationLink(event.getParticipationLink());
+        profile.setOrganiser(organiserDto);
+        profile.setEventFees(feeDtos);
+        profile.setEventSessions(sessionDtos);
+        profile.setEventImage(eventImage);
+
+        response.setData(profile);
         response.setSuccess(true);
         return response;
     }
