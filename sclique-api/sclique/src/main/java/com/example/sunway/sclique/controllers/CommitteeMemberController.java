@@ -7,10 +7,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import static com.example.sunway.sclique.utils.ResponseUtil.handleServiceResponse;
 
@@ -25,8 +23,11 @@ public class CommitteeMemberController {
     }
 
     @PostMapping()
-    public ResponseEntity<?> createCommitteeMember(@RequestBody CreateCommitteeMemberRequest createCommitteeMemberRequestteeMember) {
-        var serviceResponse = committeeMemberService.createCommitteeMember(createCommitteeMemberRequestteeMember);
+    public ResponseEntity<?> createCommitteeMember(
+        @RequestPart("request") CreateCommitteeMemberRequest createCommitteeMemberRequest,
+        @RequestPart("memberFaceImage")@Valid MultipartFile memberFaceImage
+    ) {
+        var serviceResponse = committeeMemberService.createCommitteeMember(createCommitteeMemberRequest, memberFaceImage);
         return handleServiceResponse(serviceResponse, HttpStatus.CREATED);
     }
 

@@ -14,5 +14,5 @@ public interface IEventService {
 
     ServiceResponse<Page<GetEventSummaryResponse>> getEventSummaryByTitleContainingIgnoreCase(SearchEventsRequest request);
 
-    ServiceResponse<GetEventProfileResponse> getEventProfileById(String eventId);
+    public ServiceResponse<GetEventProfileResponse> getEventProfileById(GetEventProfileRequest getEventProfileRequest);
 }

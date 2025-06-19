@@ -1,6 +1,7 @@
 package com.example.sunway.sclique.controllers;
 
 import com.example.sunway.sclique.models.event.CreateEventRequest;
+import com.example.sunway.sclique.models.event.GetEventProfileRequest;
 import com.example.sunway.sclique.models.event.SearchEventsRequest;
 import com.example.sunway.sclique.services.IEventService;
 
@@ -49,8 +50,8 @@ public class EventController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<?> getProfile(@ModelAttribute String eventId) {
-        var serviceResponse = eventService.getEventProfileById(eventId);
+    public ResponseEntity<?> getProfile(@ModelAttribute @Valid GetEventProfileRequest getEventProfileRequest) {
+        var serviceResponse = eventService.getEventProfileById(getEventProfileRequest);
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
 }

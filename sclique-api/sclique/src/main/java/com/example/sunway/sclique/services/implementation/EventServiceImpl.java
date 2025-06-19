@@ -186,11 +186,10 @@ public class EventServiceImpl implements IEventService {
         return response;
     }
 
-    public ServiceResponse<GetEventProfileResponse> getEventProfileById(String eventId) {
+    public ServiceResponse<GetEventProfileResponse> getEventProfileById(GetEventProfileRequest getEventProfileRequest) {
         var response = new ServiceResponse<GetEventProfileResponse>();
 
-        eventId = "21db684c-489c-42ba-96a4-93e95f73374c";
-        Optional<Event> eventOptional = eventRepository.findById(UUID.fromString(eventId));
+        Optional<Event> eventOptional = eventRepository.findById(UUID.fromString(getEventProfileRequest.getEventId()));
         if (eventOptional.isEmpty()) {
             response.setErrorMessage("Event not found");
             return response;
