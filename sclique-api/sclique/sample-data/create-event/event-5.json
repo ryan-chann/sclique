@@ -1,6 +1,6 @@
 {
   "title": "Tech Talent Hackathon 2025",
-  "description": "Put your coding skills to the test in this 24-hour hackathon. Collaborate with peers to develop innovative solutions to real-world problems and compete for exciting prizes.",
+  "description": "# Tech Talent Hackathon 2025\n\n**Code. Create. Conquer. 24 hours of non-stop innovation!**\n\n## Event Details\n\n### 🏆 Prizes\n* **1st Place:** RM 10,000 + Industry mentorship + Incubation opportunity\n* **2nd Place:** RM 5,000 + Industry mentorship\n* **3rd Place:** RM 2,500\n* **People's Choice Award:** RM 1,000\n\n### 💻 Challenge Tracks\n1. **HealthTech:** Innovations in healthcare delivery and wellness\n2. **EduTech:** Transforming education for the digital era\n3. **FinTech:** Revolutionizing financial services\n4. **Sustainability:** Tech solutions for environmental challenges\n\n### 📋 Schedule\n```\nDay 1\n09:00 - Registration & Setup\n10:00 - Opening Ceremony & Challenge Announcement\n11:00 - Hacking Begins\n\nDay 2\n09:00 - Submission Deadline\n10:00 - Presentations\n14:00 - Judging\n16:00 - Awards Ceremony\n```\n\n**What to bring:** Laptop, charger, student ID, and your A-game!\n\n**Teams:** 3-5 members (cross-disciplinary teams encouraged)",
   "venue": "Sunway Tech Hub",
   "durationInMinutes": 1440,
   "participationLink": "https://sunwayuniversity.edu.my/events",
@@ -19,5 +19,5 @@
       "session": "2025-07-05T09:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "36da5f90-6eb0-4b44-a053-8de964efe0f1"
 }

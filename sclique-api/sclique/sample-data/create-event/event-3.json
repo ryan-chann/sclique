@@ -1,6 +1,6 @@
 {
   "title": "Entrepreneurship Workshop Series",
-  "description": "Learn the fundamentals of starting your own business from industry experts. This workshop covers business planning, market research, funding opportunities, and marketing strategies.",
+  "description": "# Entrepreneurship Workshop Series\n\n**Turn your ideas into successful businesses!**\n\n## Workshop Modules\n1. **Business Planning & Ideation**\n   * Identifying market opportunities\n   * Crafting a compelling business plan\n\n2. **Market Research & Validation**\n   * Understanding your target audience\n   * Testing your product-market fit\n\n3. **Funding & Investment**\n   * Exploring funding options\n   * Pitching to potential investors\n\n4. **Marketing & Growth**\n   * Digital marketing essentials\n   * Customer acquisition strategies\n\n### Featured Speakers\nLearn from successful entrepreneurs and business experts who have built multi-million dollar companies.\n\n**Bring your business ideas!** You'll have the opportunity to receive personalized feedback.",
   "venue": "Sunway Innovation Labs",
   "durationInMinutes": 120,
   "participationLink": "https://docs.google.com/forms/d/e/1FAIpQLScOjU3D54gc3cVzxyjDaqshfmutBG7qI8Wms1x_Yc0bk2PPTA/viewform",
@@ -27,5 +27,5 @@
       "session": "2025-08-05T14:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "24d58c38-8dea-4de2-8587-ce02ebc769b2"
 }

@@ -1,6 +1,6 @@
 {
   "title": "Sunway Sustainability Week",
-  "description": "A week-long event dedicated to raising awareness about environmental issues and sustainable practices. Join various workshops, talks, and activities focused on creating a more sustainable future.",
+  "description": "# Sunway Sustainability Week\n\n**Join us in shaping a greener future!**\n\n## Daily Themes\n\n### Monday: Climate Action Day\n* Panel discussion with environmental experts\n* Documentary screening: \"Our Planet\"\n* Tree planting ceremony\n\n### Tuesday: Waste Reduction Day\n* Zero-waste workshop\n* Recycling competition\n* Sustainable products fair\n\n### Wednesday: Clean Energy Day\n* Renewable energy demonstrations\n* Solar-powered gadget showcase\n* Energy conservation talk\n\n### Thursday: Sustainable Food Day\n* Plant-based cooking demonstration\n* Urban farming workshop\n* Food waste management seminar\n\n### Friday: Green Innovation Day\n* Student sustainability projects exhibition\n* Green tech startup presentations\n* Sustainability hackathon kickoff\n\n---\n\n**All activities are FREE!** Registration required for workshops due to limited capacity.\n\n*\"The greatest threat to our planet is the belief that someone else will save it.\" - Robert Swan*",
   "venue": "Multiple Locations across Sunway Campus",
   "durationInMinutes": 480,
   "participationLink": "https://forms.office.com/pages/responsepage.aspx?id=6wgQBUDbSUKezp3z6MP1lOkpaERiv5JNqG7odOMNqVdUNUFNNlQ5SklVTjVKMzMyRlRTUlowUjUwNC4u",
@@ -27,5 +27,5 @@
       "session": "2025-09-05T09:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "286cb763-c24f-4270-a0ba-acca2c6b78b7"
 }

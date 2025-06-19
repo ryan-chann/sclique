@@ -1,6 +1,6 @@
 {
   "title": "Sunway Debate Championship",
-  "description": "Watch or participate in high-level debates on current social, political, and ethical issues. This championship brings together debaters from universities across Southeast Asia to compete for the prestigious Sunway Cup.",
+  "description": "# Sunway Debate Championship 2025\n\n**Words are weapons. Arguments are ammunition.**\n\n## About the Championship\n\nThe Sunway Debate Championship is the premier debate tournament in Southeast Asia, bringing together the region's most eloquent speakers and sharpest minds. Debaters will tackle contemporary social, political, and ethical issues using the Asian Parliamentary format.\n\n### Tournament Structure\n\n* **Preliminary Rounds:** 5 rounds\n* **Quarter-Finals**\n* **Semi-Finals**\n* **Grand Final**\n\n### Debate Motions\n\nMotions will cover a range of topics including:\n\n* International relations\n* Economic policies\n* Social justice issues\n* Environmental concerns\n* Technological ethics\n\n### Adjudication Panel\n\nOur distinguished adjudication team includes:\n\n* **Chief Adjudicator:** Prof. Ahmad Rahman (Oxford Union)\n* **Deputy Chief:** Ms. Priya Sharma (World Schools Debate Champion 2023)\n* **Deputy Chief:** Mr. Daniel Wong (ESL World Debate Finalist)\n\n## Past Winners\n\n| Year | Champion Team |\n|------|---------------|\n| 2024 | National University of Singapore |\n| 2023 | University of Malaya |\n| 2022 | Nanyang Technological University |\n\n**Register your team today for this battle of wits and words!**",
   "venue": "Sunway University Jeffrey Cheah Hall",
   "durationInMinutes": 420,
   "participationLink": "https://sunway.edu.my/debate-championship",
@@ -25,5 +25,5 @@
       "session": "2025-12-07T09:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "b37f2a95-1e6a-41cd-a67e-3423263680bf"
 }

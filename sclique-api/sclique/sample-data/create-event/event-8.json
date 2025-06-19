@@ -1,6 +1,6 @@
 {
   "title": "Photography Masterclass",
-  "description": "Enhance your photography skills with guidance from professional photographers. This hands-on workshop covers composition techniques, lighting principles, and post-processing fundamentals.",
+  "description": "# Photography Masterclass\n\n**Capture moments that tell powerful stories!**\n\n## What You'll Learn\n\n### 📸 Essential Camera Skills\n* Understanding exposure triangle (aperture, shutter speed, ISO)\n* Manual mode mastery\n* Focus techniques\n\n### 🎨 Composition Principles\n* Rule of thirds\n* Leading lines\n* Framing\n* Perspective and depth\n\n### 💡 Lighting Fundamentals\n* Natural light photography\n* Working with golden hour\n* Basic flash photography\n* Creating mood with lighting\n\n### ✨ Post-Processing Workshop\n* Adobe Lightroom basics\n* Color grading techniques\n* Retouching essentials\n\n---\n\n## Led by Award-Winning Photographers\n\n**Ahmad Ismail**  \n*National Geographic contributor with 15+ years experience*\n\n**Lisa Wong**  \n*Commercial photographer specializing in portrait and fashion*\n\n---\n\n**What to bring:**\n* DSLR or mirrorless camera\n* Laptop with Adobe Lightroom (trial version acceptable)\n* Memory cards\n* Notepad\n\n*Limited to 20 participants to ensure personalized attention.*",
   "venue": "Sunway Art Gallery",
   "durationInMinutes": 180,
   "participationLink": "https://sunway.edu.my/photo-masterclass",
@@ -15,5 +15,5 @@
       "session": "2025-09-20T13:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "9719b6bd-d2e0-4ec8-9d16-3b31c509d376"
 }

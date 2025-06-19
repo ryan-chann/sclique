@@ -1,6 +1,6 @@
 {
   "title": "Wellness & Mental Health Week",
-  "description": "Prioritize your wellbeing with a series of activities focused on mental health awareness, stress management, and mindfulness practices. Participate in yoga sessions, workshops, and counseling services.",
+  "description": "# Wellness & Mental Health Week\n\n**Take care of your mind, body, and soul.**\n\n> \"Mental health is not a destination, but a process. It's about how you drive, not where you're going.\" – Noam Shpancer\n\n## Daily Schedule\n\n### Monday: Mental Health Awareness\n* **10:00 AM:** Opening ceremony & keynote speech\n* **11:30 AM:** Panel discussion: \"Breaking the Stigma\"\n* **2:00 PM:** Stress screening assessments\n* **3:30 PM:** Art therapy workshop\n\n### Tuesday: Stress Management\n* **10:00 AM:** Stress and the student life seminar\n* **12:00 PM:** Breathing techniques workshop\n* **2:00 PM:** Time management strategies\n* **3:30 PM:** Exam anxiety support group\n\n### Wednesday: Mindfulness & Meditation\n* **10:00 AM:** Introduction to mindfulness practices\n* **12:00 PM:** Guided meditation session\n* **2:00 PM:** Mindful eating workshop\n* **3:30 PM:** Nature walk meditation\n\n## Additional Services Available\n* 🧘‍♀️ Daily yoga sessions (8:00 AM)\n* 💬 One-on-one counseling (by appointment)\n* 📚 Resource library\n* 🍎 Nutrition consultations\n\n**All activities are FREE and open to students, staff, and faculty.**\n\n*Self-care is not selfish. You cannot serve from an empty vessel.*",
   "venue": "Sunway Student Center",
   "durationInMinutes": 240,
   "participationLink": "https://sunway.edu.my/wellness-week",
@@ -21,5 +21,5 @@
       "session": "2025-11-12T10:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "a15dca7f-4173-417e-b7d2-40364d0a57ed"
 }

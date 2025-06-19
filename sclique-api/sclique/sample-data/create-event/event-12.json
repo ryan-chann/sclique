@@ -1,6 +1,6 @@
 {
   "title": "Financial Literacy Seminar",
-  "description": "Build a strong foundation in personal finance management with this comprehensive seminar. Topics include budgeting, investing, debt management, and planning for future financial goals.",
+  "description": "# Financial Literacy Seminar\n\n**Master Your Money, Secure Your Future**\n\n> \"Financial freedom is available to those who learn about it and work for it.\" - Robert Kiyosaki\n\n## What You'll Learn\n\n### 💰 Smart Budgeting\n* Creating a personalized budget system\n* Tracking expenses effectively\n* Emergency fund planning\n* Using budgeting apps and tools\n\n### 📈 Investment Fundamentals\n* Understanding investment options\n* Risk assessment\n* Starting with small investments\n* Long-term investment strategies\n\n### 💳 Debt Management\n* Good debt vs. bad debt\n* Effective strategies to eliminate debt\n* Understanding credit scores\n* Student loan management\n\n### 🎯 Financial Goal Setting\n* Short-term vs. long-term goals\n* Retirement planning basics\n* Major purchase planning\n* Setting realistic milestones\n\n## Expert Speakers\n\n**Dato' Tan Mei Ling**  \n*CEO, Malaysian Financial Planning Association*\n\n**Dr. Ahmad Firdaus**  \n*Professor of Finance, Sunway University*\n\n**Sarah Wong**  \n*Certified Financial Planner & Author*\n\n## Free Resources for Attendees\n* Digital budgeting templates\n* Investment guide e-book\n* Financial planning checklist\n* One-month access to premium budgeting app\n\n**This seminar is completely FREE for all participants!**",
   "venue": "Sunway University Business School",
   "durationInMinutes": 150,
   "participationLink": "https://sunway.edu.my/financial-literacy",
@@ -15,5 +15,5 @@
       "session": "2025-07-15T15:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "fc743350-a571-4901-b5aa-21450b62487e"
 }

@@ -1,6 +1,6 @@
 {
   "title": "AI & Machine Learning Conference",
-  "description": "Explore the latest advancements in artificial intelligence and machine learning with leading experts from academia and industry. The conference features keynote speeches, panel discussions, and networking opportunities.",
+  "description": "# AI & Machine Learning Conference 2025\n\n## Shaping the Future with Artificial Intelligence\n\n**Join us for the premier AI event in Southeast Asia!**\n\n### Keynote Speakers\n\n#### Dr. Sarah Chen\n*Chief AI Scientist, Google Research*\n> \"Transformer Models: Beyond the Hype\"\n\n#### Prof. Raj Patel\n*Director, MIT AI Lab*\n> \"Ethical Considerations in AI Development\"\n\n#### Dr. Michael Wong\n*CTO, TechVision AI*\n> \"AI Applications in Healthcare: Current Progress and Future Directions\"\n\n### Conference Tracks\n\n1. **Deep Learning Advances**\n   * Neural network architectures\n   * Training methodologies\n   * Performance optimization\n\n2. **Natural Language Processing**\n   * Large language models\n   * Multilingual processing\n   * Semantic understanding\n\n3. **Computer Vision**\n   * Object detection and recognition\n   * Image generation\n   * Video analysis\n\n4. **AI Ethics & Governance**\n   * Bias mitigation\n   * Regulatory frameworks\n   * Responsible AI deployment\n\n### Workshop Sessions\n* Hands-on TensorFlow tutorial\n* PyTorch implementation strategies\n* MLOps best practices\n\n*Limited seats available. Early registration recommended.*",
   "venue": "Sunway University Lecture Theatre 1",
   "durationInMinutes": 480,
   "participationLink": "https://sunway.edu.my/ai-conference",
@@ -26,5 +26,5 @@
       "session": "2025-08-26T08:30:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "8736899c-cbe7-4d8a-856d-d09ff97cb23f"
 }

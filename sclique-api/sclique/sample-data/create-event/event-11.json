@@ -1,6 +1,6 @@
 {
   "title": "Game Development Workshop",
-  "description": "Learn the fundamentals of game design and development using popular tools and frameworks. Create your own simple game by the end of this hands-on workshop led by industry professionals.",
+  "description": "# Game Development Workshop\n\n**From Player to Creator: Build Your First Game!**\n\n## Workshop Overview\n\nThis intensive hands-on workshop will guide you through the process of creating your very own 2D game from scratch. By the end of the session, you'll have a playable game to share with friends and add to your portfolio!\n\n### What You'll Learn\n\n#### Game Design Fundamentals\n* Core game mechanics\n* Level design principles\n* Player psychology\n* Balancing challenge and reward\n\n#### Technical Implementation\n* Setting up Unity Engine\n* C# programming basics for games\n* Sprite animation\n* Collision detection\n* Audio implementation\n\n#### Publishing Your Game\n* Building for different platforms\n* Game testing strategies\n* Distribution options\n\n## Workshop Leaders\n\n### Jason Lee\n*Lead Game Developer at Steamroller Studios*\n\nJason has shipped over 10 titles for PC and mobile platforms, including the award-winning indie hit \"Pixel Odyssey.\"\n\n### Mei Ling\n*Game Design Instructor at DigiPen Institute*\n\nMei specializes in game mechanics and player engagement, with experience working on AAA titles at Ubisoft.\n\n## Prerequisites\n\n* Basic programming knowledge helpful but not required\n* Bring your own laptop (Windows/Mac)\n* Pre-install Unity (free version) - instructions will be emailed\n\n*Space is limited to ensure personalized instruction.*",
   "venue": "Sunway Computer Lab 5",
   "durationInMinutes": 240,
   "participationLink": "https://sunway.edu.my/game-dev-workshop",
@@ -23,5 +23,5 @@
       "session": "2025-10-11T10:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "d49d7835-3a27-4897-aafd-123b0450333f"
 }

@@ -1,6 +1,6 @@
 {
   "title": "Annual Sunway Career Fair 2025",
-  "description": "Connect with top employers from various industries. This annual event provides opportunities for students to find internships and fresh graduates to secure full-time positions.",
+  "description": "# Annual Sunway Career Fair 2025\n\n**Your gateway to career opportunities!**\n\n## Event Highlights:\n- 🏢 Connect with **50+ top employers** from various industries\n- 💼 Discover internship and full-time positions\n- 📝 On-the-spot interviews for qualified candidates\n- 📋 Resume review services\n\n### Participating Companies\n* Google Malaysia\n* Petronas\n* CIMB Bank\n* Maybank\n* AirAsia\n* And many more!\n\n---\n\n**Dress code:** Business casual\n\n**Bring:** Multiple copies of your resume and student ID",
   "venue": "Sunway University Grand Hall",
   "durationInMinutes": 360,
   "participationLink": "https://forms.gle/KrpPRKWzjTuXMpeM8",
@@ -21,5 +21,5 @@
       "session": "2025-07-24T10:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "18dbea25-fb39-4a97-afb1-218f9cc474f8"
 }

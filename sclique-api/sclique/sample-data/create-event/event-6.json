@@ -1,6 +1,6 @@
 {
   "title": "International Cultural Festival",
-  "description": "Celebrate diversity with a showcase of different cultures through food, performances, and exhibitions. Experience traditions from around the world right on campus.",
+  "description": "# International Cultural Festival\n\n**A Global Celebration of Diversity!**\n\n## Event Highlights\n\n### 🌍 Cultural Pavilions\nVisit interactive booths representing over 20 countries:\n* China\n* India\n* Malaysia\n* Indonesia\n* Nigeria\n* And many more!\n\n### 🍲 Global Cuisine\nSample authentic dishes from around the world:\n* Japanese sushi\n* Mexican tacos\n* Italian pasta\n* Middle Eastern hummus\n* Korean kimchi\n\n### 👘 Traditional Fashion Show\nWitness the beauty of cultural attire from different regions.\n\n### 🎭 Cultural Performances\nSchedule:\n* 12:30 PM - Chinese Lion Dance\n* 1:15 PM - Indian Classical Dance\n* 2:00 PM - African Drumming\n* 2:45 PM - Latin American Dances\n* 3:30 PM - Malaysian Traditional Performance\n\n![Cultural Festival](https://example.com/cultural-festival-image.jpg)\n\n> \"Diversity is not about how we differ. Diversity is about embracing one another's uniqueness.\" - Ola Joseph",
   "venue": "Sunway Resort Hotel & Spa",
   "durationInMinutes": 300,
   "participationLink": "https://sunway.edu.my/cultural-festival",
@@ -18,5 +18,5 @@
       "session": "2025-10-19T12:00:00"
     }
   ],
-  "organiserId": "string"
+  "organiserId": "489cb455-8df9-4309-bfd6-5bd8c4a6191d"
 }
