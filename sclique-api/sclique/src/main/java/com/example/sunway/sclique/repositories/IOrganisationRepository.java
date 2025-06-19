@@ -42,13 +42,4 @@ public interface IOrganisationRepository extends JpaRepository<Organisation, UUI
     """)
     Page<Object[]> findOrganisationNameImageByTitleContainingIgnoreCase(String query, EntityType entityType, ImageType imageType, Pageable pageable);
 
-//    @Query("""
-//        SELECT
-//            organisation.id,
-//            organisation.name,
-//            organisation.description
-//       FROM Organisation organisation
-//       WHERE organisation.id = ?1
-//    """)
-//    Page<Object[]> findOrganisationProfileById(String id);
 }

@@ -226,6 +226,7 @@ public class OrganisationServiceImpl implements IOrganisationService {
         profile.setProfileImage(organisationProfileImage);
 
         response.setData(profile);
+        response.setSuccess(true);
         return response;
     }
 
