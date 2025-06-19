@@ -220,6 +220,7 @@ public class EventServiceImpl implements IEventService {
         }
 
         GetEventProfileResponse.OrganiserDto organiserDto = new GetEventProfileResponse.OrganiserDto();
+        organiserDto.setId(organisation.getId().toString());
         organiserDto.setName(organisation.getName());
 
         ServiceResponse<List<GetImageByEntityIdResponse>> organiserImageResponse = imageService.getImageByEntityId(organisation.getId().toString());
@@ -259,6 +260,7 @@ public class EventServiceImpl implements IEventService {
         GetEventProfileResponse profile = new GetEventProfileResponse();
         profile.setId(event.getId().toString());
         profile.setName(event.getTitle());
+        profile.setDescription(event.getDescription());
         profile.setVenue(event.getVenue());
         profile.setDurationInMinutes(event.getDurationInMinutes());
         profile.setParticipationLink(event.getParticipationLink());

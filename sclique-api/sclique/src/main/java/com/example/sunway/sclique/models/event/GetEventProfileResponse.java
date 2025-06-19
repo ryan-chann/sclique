@@ -16,6 +16,7 @@ public class GetEventProfileResponse {
     private String id;
     private String name;
     private String venue;
+    private String description;
     private int durationInMinutes;
     private String participationLink;
     private OrganiserDto organiser;
@@ -26,6 +27,7 @@ public class GetEventProfileResponse {
     @Getter
     @Setter
     public static class OrganiserDto {
+        private String id;
         private ImageDto organiserImage;
         private String name;
     }

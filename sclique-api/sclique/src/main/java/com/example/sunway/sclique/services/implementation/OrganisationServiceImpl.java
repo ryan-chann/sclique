@@ -98,9 +98,19 @@ public class OrganisationServiceImpl implements IOrganisationService {
 
         Pageable pageable = PageRequest.of(searchOrganisationsRequest.getPage(), searchOrganisationsRequest.getPageSize());
 
-        Page<GetOrganisationNameResponse> organisationNamePage = organisationRepository.findOrganisationNameByIdOrTitleContainingIgnoreCase(searchOrganisationsRequest.getQuery(), pageable);
+        Page<Object[]> repositoryResponsePage = organisationRepository.findOrganisationNameByIdOrTitleContainingIgnoreCase(searchOrganisationsRequest.getQuery(), pageable);
 
-        response.setData(organisationNamePage);
+        Page<GetOrganisationNameResponse> serviceResponsePage = repositoryResponsePage.map( object -> {
+           UUID organisationId = (UUID) object[0];
+           String organisationName = (String) object[1];
+
+           return new GetOrganisationNameResponse(
+               organisationId.toString(),
+               organisationName
+           );
+        });
+
+        response.setData(serviceResponsePage);
         response.setSuccess(true);
 
         return response;
@@ -176,17 +186,28 @@ public class OrganisationServiceImpl implements IOrganisationService {
             dto.setPosition(committeeMember.getPosition());
             dto.setManagerId(committeeMember.getManager() != null ? committeeMember.getManager().getId() : null);
 
-            ServiceResponse<List<GetImageByEntityIdResponse>> imageResponse = imageService.getImageByEntityId(member.getId().toString());
+            ServiceResponse<List<GetImageByEntityIdResponse>> imageResponse =
+                    imageService.getImageByEntityId(member.getId().toString());
 
             if (imageResponse.isSuccess() && !imageResponse.getData().isEmpty()) {
-                Optional<GetImageByEntityIdResponse> imageOptional = imageResponse.getData().stream().findFirst();
+                imageResponse.getData().stream().findFirst().ifPresent(img -> {
+                    GetOrganisationProfileResponse.ImageDto imageDto = new GetOrganisationProfileResponse.ImageDto();
+                    imageDto.setMimeType(img.getMimeType());
+                    imageDto.setImageDataBase64(img.getImageDataBase64());
+                    dto.setImage(imageDto);
+                });
 
-                GetOrganisationProfileResponse.ImageDto imageDto = new GetOrganisationProfileResponse.ImageDto();
-                imageDto.setMimeType(imageOptional.get().getMimeType());
-                imageDto.setImageDataBase64(imageOptional.get().getImageDataBase64());
-                dto.setImage(imageDto);
-
+                imageResponse.getData().stream()
+                    .filter(img -> img.getImageType() == ImageType.COMMITTEE_MEMBER_FACE_IMAGE)
+                    .findFirst()
+                    .ifPresent(avatarImg -> {
+                        GetOrganisationProfileResponse.ImageDto avatarDto = new GetOrganisationProfileResponse.ImageDto();
+                        avatarDto.setMimeType(avatarImg.getMimeType());
+                        avatarDto.setImageDataBase64(avatarImg.getImageDataBase64());
+                        dto.setAvatar(avatarDto);
+                });
             }
+
             committeeMemberDtos.add(dto);
         }
 
@@ -207,8 +228,8 @@ public class OrganisationServiceImpl implements IOrganisationService {
             }
 
             Optional<GetImageByEntityIdResponse> profileOpt = organisationImageResponse.getData().stream()
-                    .filter(img -> img.getImageType() == ImageType.ORGANISATION_PROFILE_IMAGE)
-                    .findFirst();
+                .filter(img -> img.getImageType() == ImageType.ORGANISATION_PROFILE_IMAGE)
+                .findFirst();
 
             if (profileOpt.isPresent()) {
                 organisationProfileImage = new GetOrganisationProfileResponse.ImageDto();

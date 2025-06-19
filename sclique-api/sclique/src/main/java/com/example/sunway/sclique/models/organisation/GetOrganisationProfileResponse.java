@@ -18,6 +18,7 @@ public class GetOrganisationProfileResponse {
     @Getter
     @Setter
     public static class CommitteeMemberDto {
+        private ImageDto avatar;
         private Long memberId;
         private String name;
         private String position;

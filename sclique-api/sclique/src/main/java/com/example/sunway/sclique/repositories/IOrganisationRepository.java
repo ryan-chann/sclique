@@ -24,7 +24,7 @@ public interface IOrganisationRepository extends JpaRepository<Organisation, UUI
         WHERE LOWER(organisation.name) LIKE LOWER(CONCAT('%', ?1 , '%')) OR str(organisation.id) = ?1
         ORDER BY organisation.createdAt DESC
     """)
-    Page<GetOrganisationNameResponse> findOrganisationNameByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
+    Page<Object[]> findOrganisationNameByIdOrTitleContainingIgnoreCase(String query, Pageable pageable);
 
     @Query("""
         SELECT 
