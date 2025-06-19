@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariants = cva(
-  "flex flex-row justify-center items-center disabled:opacity-56 font-[Nunito_Sans] font-bold tracking-[0.015] cursor-pointer",
+  "flex flex-row justify-center items-center disabled:opacity-56 font-nunitosans font-bold tracking-[0.015] cursor-pointer",
   {
     variants: {
       variantStyle: {

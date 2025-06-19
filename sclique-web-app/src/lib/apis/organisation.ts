@@ -1,5 +1,6 @@
 import { OrganisationListingProps } from "@/lib/props/organisationListing";
 import { PageProps } from "@/lib/props/page";
+import { API_BASE_URL } from "./connection";
 
 export async function fetchOrganisations(
   query: string,
@@ -7,7 +8,7 @@ export async function fetchOrganisations(
   pageSize: number
 ): Promise<PageProps<OrganisationListingProps>> {
   const res = await fetch(
-  `http://localhost:8080/api/v1/organisation/search/listing?query=${encodeURIComponent(query)}&page=${page}&pageSize=${pageSize}`
+  `${API_BASE_URL}/api/v1/organisation/search/listing?query=${encodeURIComponent(query)}&page=${page}&pageSize=${pageSize}`
   );
 
   if (!res.ok) {

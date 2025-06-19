@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito%20Sans:bold,bolditalic,italic");
-@import url("https://fonts.googleapis.com/css?family=Muli%20Sans:bold,bolditalic,italic");
+@import url("https://fonts.googleapis.com/css?family=Mulish:bold,bolditalic,italic");
 @import "tailwindcss";
+@import 'primereact/resources/themes/saga-blue/theme.css';
+@import 'primereact/resources/primereact.min.css';
+@plugin "@tailwindcss/typography";
 
 @theme {
+    --font-mulish: "Mulish", sans-serif;
+    --font-nunitosans: "Nunito_Sans", sans-serif;
 }

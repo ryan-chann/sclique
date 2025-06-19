@@ -69,25 +69,27 @@ export default function Organisations() {
           {loading ? (
             <p>Loading...</p>
           ) : data?.content?.length ? (
-            data.content.map((org, i) => (
-              <OrganisationListingCard
-                key={i}
-                name={org.name}
-                imageDataBase64={org.imageDataBase64}
-                mimeType={org.mimeType}
-              />
-            ))
-          ) : (
-            <p>No organisations found.</p>
-          )}
+            <>
+              {data.content.map((org, i) => (
+                <OrganisationListingCard
+                  key={i}
+                  name={org.name}
+                  imageDataBase64={org.imageDataBase64}
+                  mimeType={org.mimeType}
+                />
+              ))}
 
-          <div className="col-span-2 flex justify-end mt-4">
-            <Pagination
-              page={page}
-              totalPages={data?.totalPages || 1}
-              onPageChange={handlePageChange}
-            />
-          </div>
+              <div className="col-span-2 flex justify-end mt-4">
+                <Pagination
+                  page={page}
+                  totalPages={data?.totalPages || 1}
+                  onPageChange={handlePageChange}
+                />
+              </div>
+            </>
+          ) : listingQuery ? (
+            <p className="ml-3">No organisations found.</p>
+          ) : null}
         </div>
       </section>
     </main>

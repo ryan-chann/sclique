@@ -25,7 +25,7 @@ export default function Pagination({ page, totalPages, onPageChange }: Paginatio
         className="h-[48px] w-[46px]"
       />
 
-      <div className="flex flex-row gap-2 py-2 px-14 rounded-full bg-[#FFFFFF] z-40 drop-shadow-md font-[Muli] font-semibold text-[22px] tracking-[0.014] leading-[1.64]">
+      <div className="flex flex-row gap-2 py-2 px-14 rounded-full bg-[#FFFFFF] z-40 drop-shadow-md font-mulish font-semibold text-[22px] tracking-[0.014] leading-[1.64]">
         <span className="text-[#FB773C]">{String(page + 1).padStart(2, '0')}</span>
         <span>/</span>
         <span>{String(totalPages).padStart(2, '0')}</span>

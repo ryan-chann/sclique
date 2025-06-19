@@ -7,6 +7,8 @@ import { PageProps } from "@/lib/props/page";
 import { OrganisationListingProps } from "@/lib/props/organisationListing";
 
 
+import { fetchEvents } from "@/lib/apis/event";
+import { EventListingProps } from "@/lib/props/eventListing";
 export function useSearch(
   query: string,
   variant: "events" | "organisations" | "eventsOrganisations"
@@ -74,6 +76,32 @@ export function useOrganisationSearch(
         setData(result);
       } catch (err) {
         console.error("Failed to fetch organisations:", err);
+        setData(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    if (query.length > 0) {
+      load();
+    }
+  }, [query, page, pageSize]);
+
+  return { data, loading };
+}
+
+export function useEventSearch(query: string, page: number, pageSize: number) {
+  const [data, setData] = useState<PageProps<EventListingProps> | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        setLoading(true);
+        const result = await fetchEvents(query, page, pageSize);
+        setData(result);
+      } catch (err) {
+        console.error("Failed to fetch events:", err);
         setData(null);
       } finally {
         setLoading(false);
