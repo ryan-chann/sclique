@@ -1,12 +1,17 @@
 package com.example.sunway.sclique.services.implementation;
 
+import com.example.sunway.sclique.entities.CommitteeMember;
 import com.example.sunway.sclique.entities.Organisation;
+import com.example.sunway.sclique.entities.OrganisationCommitteeMember;
 import com.example.sunway.sclique.enums.EntityType;
 import com.example.sunway.sclique.enums.ImageType;
 import com.example.sunway.sclique.mapper.IOrganisationMapper;
 import com.example.sunway.sclique.models.*;
 import com.example.sunway.sclique.models.image.CreateImageRequest;
+import com.example.sunway.sclique.models.image.GetImageByEntityIdResponse;
 import com.example.sunway.sclique.models.organisation.*;
+import com.example.sunway.sclique.repositories.ICommitteeMemberRepository;
+import com.example.sunway.sclique.repositories.IOrganisationCommitteeMemberRepository;
 import com.example.sunway.sclique.repositories.IOrganisationRepository;
 import com.example.sunway.sclique.services.IImageService;
 import com.example.sunway.sclique.services.IOrganisationService;
@@ -19,24 +24,29 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.Base64;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class OrganisationServiceImpl implements IOrganisationService {
     private final IOrganisationRepository organisationRepository;
     private final IOrganisationMapper organisationMapper;
     private final IImageService imageService;
+    private final ICommitteeMemberRepository committeeMemberRepository;
+    private final IOrganisationCommitteeMemberRepository organisationCommitteeMemberRepository;
 
     @Autowired
     public OrganisationServiceImpl(
             IOrganisationRepository organisationRepository,
             IOrganisationMapper organisationMapper,
-            IImageService imageService
+            IImageService imageService,
+            ICommitteeMemberRepository committeeMemberRepository,
+            IOrganisationCommitteeMemberRepository organisationCommitteeMemberRepository
     ) {
         this.organisationRepository = organisationRepository;
         this.organisationMapper = organisationMapper;
         this.imageService = imageService;
+        this.committeeMemberRepository = committeeMemberRepository;
+        this.organisationCommitteeMemberRepository = organisationCommitteeMemberRepository;
     }
 
     public ServiceResponse<Boolean> createOrganisation(CreateOrganisationRequest createOrganisationRequest, MultipartFile organisationProfileImage, MultipartFile organisationCoverImage) {
@@ -139,10 +149,84 @@ public class OrganisationServiceImpl implements IOrganisationService {
     }
 
     @Transactional
-    public ServiceResponse<GetOrganisationProfileResponse> getOrganisationProfile(String id) {
+    public ServiceResponse<GetOrganisationProfileResponse> getOrganisationProfile(GetOrganisationProfileRequest getOrganisationProfileRequest) {
         var response = new ServiceResponse<GetOrganisationProfileResponse>();
 
+        Optional<Organisation> organisationOptional = organisationRepository.findById(UUID.fromString(getOrganisationProfileRequest.getOrganisationId()));
 
+        if (organisationOptional.isEmpty()) {
+            response.setErrorMessage("Organisation not found");
+            return response;
+        }
+
+        Organisation organisation = organisationOptional.get();
+
+        List<OrganisationCommitteeMember> committeeMembers = organisationCommitteeMemberRepository.findByOrganisationId(organisation.getId());
+
+        List<GetOrganisationProfileResponse.CommitteeMemberDto> committeeMemberDtos = new ArrayList<>();
+
+        for (OrganisationCommitteeMember committeeMember : committeeMembers) {
+            CommitteeMember member = committeeMember.getCommitteeMember();
+            GetOrganisationProfileResponse.CommitteeMemberDto dto = new GetOrganisationProfileResponse.CommitteeMemberDto();
+
+            dto.setMemberId(committeeMember.getId());
+            dto.setName(member.getName());
+            dto.setEmail(member.getEmail());
+            dto.setPhoneNumber(member.getPhoneNumber());
+            dto.setPosition(committeeMember.getPosition());
+            dto.setManagerId(committeeMember.getManager() != null ? committeeMember.getManager().getId() : null);
+
+            ServiceResponse<List<GetImageByEntityIdResponse>> imageResponse = imageService.getImageByEntityId(member.getId().toString());
+
+            if (imageResponse.isSuccess() && !imageResponse.getData().isEmpty()) {
+                Optional<GetImageByEntityIdResponse> imageOptional = imageResponse.getData().stream().findFirst();
+
+                GetOrganisationProfileResponse.ImageDto imageDto = new GetOrganisationProfileResponse.ImageDto();
+                imageDto.setMimeType(imageOptional.get().getMimeType());
+                imageDto.setImageDataBase64(imageOptional.get().getImageDataBase64());
+                dto.setImage(imageDto);
+
+            }
+            committeeMemberDtos.add(dto);
+        }
+
+        ServiceResponse<List<GetImageByEntityIdResponse>> organisationImageResponse = imageService.getImageByEntityId(organisation.getId().toString());
+
+        GetOrganisationProfileResponse.ImageDto organisationCoverImage = null;
+        GetOrganisationProfileResponse.ImageDto organisationProfileImage = null;
+
+        if (organisationImageResponse.isSuccess() && !organisationImageResponse.getData().isEmpty()) {
+            Optional<GetImageByEntityIdResponse> coverOpt = organisationImageResponse.getData().stream()
+                    .filter(img -> img.getImageType() == ImageType.ORGANISATION_COVER_IMAGE)
+                    .findFirst();
+
+            if (coverOpt.isPresent()) {
+                organisationCoverImage = new GetOrganisationProfileResponse.ImageDto();
+                organisationCoverImage.setMimeType(coverOpt.get().getMimeType());
+                organisationCoverImage.setImageDataBase64(coverOpt.get().getImageDataBase64());
+            }
+
+            Optional<GetImageByEntityIdResponse> profileOpt = organisationImageResponse.getData().stream()
+                    .filter(img -> img.getImageType() == ImageType.ORGANISATION_PROFILE_IMAGE)
+                    .findFirst();
+
+            if (profileOpt.isPresent()) {
+                organisationProfileImage = new GetOrganisationProfileResponse.ImageDto();
+                organisationProfileImage.setMimeType(profileOpt.get().getMimeType());
+                organisationProfileImage.setImageDataBase64(profileOpt.get().getImageDataBase64());
+            }
+        }
+
+        GetOrganisationProfileResponse profile = new GetOrganisationProfileResponse();
+        profile.setOrganisationId(organisation.getId().toString());
+        profile.setName(organisation.getName());
+        profile.setDescription(organisation.getDescription());
+        profile.setCommitteeMembers(committeeMemberDtos);
+        profile.setCoverImage(organisationCoverImage);
+        profile.setProfileImage(organisationProfileImage);
+
+        response.setData(profile);
         return response;
     }
+
 }

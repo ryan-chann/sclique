@@ -1,6 +1,7 @@
 package com.example.sunway.sclique.controllers;
 
 import com.example.sunway.sclique.models.organisation.CreateOrganisationRequest;
+import com.example.sunway.sclique.models.organisation.GetOrganisationProfileRequest;
 import com.example.sunway.sclique.models.organisation.SearchOrganisationsRequest;
 import com.example.sunway.sclique.services.IOrganisationService;
 
@@ -44,6 +45,12 @@ public class OrganisationController {
             @RequestPart("organisationCoverImage") MultipartFile organisationCoverImage
     ) {
         var serviceResponse = organisationService.createOrganisation(request, organisationProfileImage, organisationCoverImage);
+        return handleServiceResponse(serviceResponse, HttpStatus.OK);
+    }
+
+    @GetMapping("/profile")
+    public ResponseEntity<?> getOrganisationProfile(@ModelAttribute @Valid GetOrganisationProfileRequest getOrganisationProfileRequest) {
+        var serviceResponse = organisationService.getOrganisationProfile(getOrganisationProfileRequest);
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
 }

@@ -50,7 +50,7 @@ public class EventController {
     }
 
     @GetMapping("/profile")
-    public ResponseEntity<?> getProfile(@ModelAttribute @Valid GetEventProfileRequest getEventProfileRequest) {
+    public ResponseEntity<?> getEventProfile(@ModelAttribute @Valid GetEventProfileRequest getEventProfileRequest) {
         var serviceResponse = eventService.getEventProfileById(getEventProfileRequest);
         return handleServiceResponse(serviceResponse, HttpStatus.OK);
     }
