@@ -8,10 +8,11 @@ export interface EventSessionProps {
 }
 
 export interface EventListingProps {
+  id: string;
   title: string;
   venue: string;
-  eventFees: EventFeeProps[];
-  eventSessions: EventSessionProps[];
-  imageDataBase64?: string;
-  mimeType?: string;
+  eventFees: { price: number }[];
+  eventSessions: { session: string }[];
+  imageDataBase64: string;
+  mimeType: string;
 }

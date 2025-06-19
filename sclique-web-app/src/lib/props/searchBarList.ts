@@ -1,12 +1,12 @@
 export interface SearchBarListProps {
   title: string;
-  items: string[];
-  onItemClick?: (item: string) => void;
+  items: { id: string; title: string }[];
+  onItemClick?: (item: { id: string; title: string }) => void;
   emptyText: string;
-};
+}
 
 export interface SearchResultsProps {
-  events: string[];
-  organisations: string[];
-  variant?: "events" | "organisations" | "eventsOrganisations";
-};
+  events: { id: string; title: string }[];
+  organisations: { id: string; title: string }[];
+  variant: "events" | "organisations" | "eventsOrganisations";
+}

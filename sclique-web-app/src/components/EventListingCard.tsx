@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import { EventListingProps } from "@/lib/props/eventListing";
 import { format } from "date-fns";
 
 export default function EventListingCard({
+  id,
   title,
   venue,
   eventFees,
@@ -11,6 +15,8 @@ export default function EventListingCard({
   imageDataBase64,
   mimeType,
 }: EventListingProps) {
+  const router = useRouter();
+
   const prices = eventFees.map(f => f.price);
   const minPrice = Math.min(...prices);
   const isFree = prices.includes(0.0);
@@ -34,7 +40,7 @@ export default function EventListingCard({
   const imageSrc =
     imageDataBase64 && mimeType
       ? `data:${mimeType};base64,${imageDataBase64}`
-      : "https://dummyimage.com/1080x1080/000/fff"; // fallback image
+      : "https://dummyimage.com/1080x1080/000/fff";
 
   return (
     <article className="flex flex-row gap-[42px]">
@@ -73,6 +79,7 @@ export default function EventListingCard({
           size="medium"
           text="View"
           className="h-[30px] w-[80px]"
+          onClick={() => router.push(`/events/${id}`)}
         />
       </hgroup>
     </article>

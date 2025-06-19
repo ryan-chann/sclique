@@ -9,6 +9,8 @@ import { searchBarFormVariants } from "@/lib/variants/searchBar";
 import { SearchBarProps } from "@/lib/props/searchBar";
 import SearchEventOrganisationModal from "./SearchEventOrganisationModal";
 
+type StructuredItem = { id: string; title: string };
+
 export default function SearchBar({
   corner,
   containerRef,
@@ -17,7 +19,7 @@ export default function SearchBar({
   formProps,
   modalProps,
   placeholder,
-  variant,
+  variant = "eventsOrganisations",
   query,
   onQueryChange,
   showModal,
@@ -28,8 +30,8 @@ export default function SearchBar({
   query: string;
   onQueryChange: (q: string) => void;
   showModal: boolean;
-  events: string[];
-  organisations: string[];
+  events: StructuredItem[];
+  organisations: StructuredItem[];
 }) {
   return (
     <div

@@ -77,6 +77,7 @@ export default function Events() {
               {data.content.map((event, i) => (
                 <EventListingCard
                   key={i}
+                  id={event.id}
                   title={event.title}
                   venue={event.venue}
                   eventFees={event.eventFees}

@@ -73,6 +73,7 @@ export default function Organisations() {
               {data.content.map((org, i) => (
                 <OrganisationListingCard
                   key={i}
+                  id={org.id}
                   name={org.name}
                   imageDataBase64={org.imageDataBase64}
                   mimeType={org.mimeType}
