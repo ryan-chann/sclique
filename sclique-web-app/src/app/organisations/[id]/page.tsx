@@ -156,7 +156,16 @@ const treeData = useMemo(() => {
           className="max-w-full overflow-auto border rounded-md p-4 shadow-inner"
           style={{ maxHeight: "600px" }}
         >
-          <OrganizationChart value={treeData} nodeTemplate={CommitteeMemberCardTreeNode} />
+          {treeData.length > 0 ? (
+            <OrganizationChart
+              value={treeData}
+              nodeTemplate={CommitteeMemberCardTreeNode}
+            />
+          ) : (
+            <div className="text-center text-gray-500 italic">
+              Board of Director data unavailable.
+            </div>
+          )}
         </div>
       </hgroup>
     </main>

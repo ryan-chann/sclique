@@ -121,7 +121,17 @@ export default function Profile() {
         </div>
 
         <div className="flex flex-col gap-6 max-w-[480px] grow-0 ml-10">
-          <CountdownBar targetDate="2025-07-10T09:00:00" />
+          <CountdownBar
+            targetDate={
+              eventSessions.length > 0
+                ? new Date(
+                    [...eventSessions]
+                      .map((s) => new Date(s.session))
+                      .sort((a, b) => a.getTime() - b.getTime())[0]
+                  ).toISOString()
+                : new Date().toISOString()
+            }
+          />
           <ScanToJoinCard url={participationLink} />
           <EventSessionBar dateTimes={sessionTimes} />
 
