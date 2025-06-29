@@ -35,7 +35,7 @@ public class CreateEventRequest {
     @NotNull(message = "EventSessions is required")
     private List<EventSessionDto> eventSessions;
 
-    @NotNull(message = "OrganiserId is required")
+    @NotBlank(message = "OrganiserId is required")
     private String organiserId;
 
     @Getter
