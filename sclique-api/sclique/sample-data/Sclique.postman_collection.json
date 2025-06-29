@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "130a21dd-262f-43f8-928f-769f1ca1a39e",
+		"name": "Sclique",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45403679",
+		"_collection_link": "https://ryan-6902087.postman.co/workspace/Ryan's-Workspace~ca90ae13-644f-467a-8f8d-a61978ef1c14/collection/45403679-130a21dd-262f-43f8-928f-769f1ca1a39e?action=share&source=collection_link&creator=45403679"
+	},
+	"item": [
+		{
+			"name": "/api/v1/event",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "{\n  \"title\": \"Future Frontiers 2025\",\n  \"description\": \"A conference exploring breakthroughs in robotics and space tech\",\n  \"venue\": \"Cyberjaya Innovation Hub\",\n  \"durationInMinutes\": 120,\n  \"participationLink\": \"https://cyberhub.my/frontiers2025\",\n  \"eventFees\": [\n    {\n      \"type\": \"Student\",\n      \"price\": 15.0\n    },\n    {\n      \"type\": \"General\",\n      \"price\": 40.0\n    }\n  ],\n  \"organiserId\" : \"5e4554ac-ec19-45d6-9d1d-40ecf0e4881e\",\n  \"eventSessions\": [\n    {\n      \"session\": \"2025-07-10T10:00:00\"\n    },\n    {\n      \"session\": \"2025-07-11T14:00:00\"\n    }\n  ]\n\n}\n",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "eventAdvertisementImage",
+							"type": "file",
+							"src": "/Users/ryancjy/Downloads/Editor _ Mermaid Chart-2025-06-25-132828.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/event",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/event/search/titles",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "{\n  \"title\": \"Tech Talk 2025\",\n  \"description\": \"An event about AI and the future\",\n  \"venue\": \"Sunway Conference Center\",\n  \"durationInMinutes\": 90,\n  \"participationLink\": \"https://sunway.edu/ai2025\",\n  \"eventFees\": [\n    {\n      \"type\": \"Student\",\n      \"price\": 10.0\n    },\n    {\n      \"type\": \"General\",\n      \"price\": 30.0\n    }\n  ],\n  \"eventSessions\": [\n    {\n      \"session\": \"2025-06-15T09:00:00\"\n    },\n    {\n      \"session\": \"2025-06-16T11:00:00\"\n    }\n  ]\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "eventAdvertisementImage",
+							"type": "file",
+							"src": "/Users/ryancjy/Downloads/file_example_JPG_1MB.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/event/search/titles?page=0&pageSize=5&query=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"search",
+						"titles"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						},
+						{
+							"key": "query",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/event/search/listing",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "{\n  \"title\": \"Tech Talk 2025\",\n  \"description\": \"An event about AI and the future\",\n  \"venue\": \"Sunway Conference Center\",\n  \"durationInMinutes\": 90,\n  \"participationLink\": \"https://sunway.edu/ai2025\",\n  \"eventFees\": [\n    {\n      \"type\": \"Student\",\n      \"price\": 10.0\n    },\n    {\n      \"type\": \"General\",\n      \"price\": 30.0\n    }\n  ],\n  \"eventSessions\": [\n    {\n      \"session\": \"2025-06-15T09:00:00\"\n    },\n    {\n      \"session\": \"2025-06-16T11:00:00\"\n    }\n  ]\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "eventAdvertisementImage",
+							"type": "file",
+							"src": "/Users/ryancjy/Downloads/file_example_JPG_1MB.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/event/search/listing?page=0&pageSize=5&query=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"search",
+						"listing"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						},
+						{
+							"key": "query",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/event/search/listing Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "{\n  \"title\": \"Tech Talk 2025\",\n  \"description\": \"An event about AI and the future\",\n  \"venue\": \"Sunway Conference Center\",\n  \"durationInMinutes\": 90,\n  \"participationLink\": \"https://sunway.edu/ai2025\",\n  \"eventFees\": [\n    {\n      \"type\": \"Student\",\n      \"price\": 10.0\n    },\n    {\n      \"type\": \"General\",\n      \"price\": 30.0\n    }\n  ],\n  \"eventSessions\": [\n    {\n      \"session\": \"2025-06-15T09:00:00\"\n    },\n    {\n      \"session\": \"2025-06-16T11:00:00\"\n    }\n  ]\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "eventAdvertisementImage",
+							"type": "file",
+							"src": "/Users/ryancjy/Downloads/file_example_JPG_1MB.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/event/profile?eventId=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"event",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "eventId",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/organisation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": " {\n    \"name\": \"string\",\n    \"description\": \"string\"\n  }",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "organisationProfileImage",
+							"type": "file",
+							"src": []
+						},
+						{
+							"key": "organisationCoverImage",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/organisation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organisation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/organisation/search/names",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/organisation/search/names?page=0&pageSize=5&query=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organisation",
+						"search",
+						"names"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						},
+						{
+							"key": "query",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/organisation/search/listing",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/organisation/search/listing?page=0&pageSize=5&query=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organisation",
+						"search",
+						"listing"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						},
+						{
+							"key": "query",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/organisation/profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/organisation/profile?organisationId=a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"organisation",
+						"profile"
+					],
+					"query": [
+						{
+							"key": "organisationId",
+							"value": "a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/committee-member",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "request",
+							"value": "{\n    \"name\": \"string\",\n    \"email\": \"string\",\n    \"phoneNumber\": \"string\"\n}",
+							"contentType": "application/json",
+							"type": "text"
+						},
+						{
+							"key": "memberFaceImage",
+							"type": "file",
+							"src": []
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/committee-member",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"committee-member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/v1/committee-member/join/organisation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"organisationId\": \"string\",\n  \"committeeMemberId\": \"string\",\n  \"position\": \"string\",\n  \"managerId\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/committee-member/join/organisation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"committee-member",
+						"join",
+						"organisation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UploadEventAdvertisementImage",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/Users/ryancjy/Downloads/file_example_JPG_1MB.jpg"
+						},
+						{
+							"key": "request",
+							"value": " {\n    \"entityId\": \"7059039d-b808-4922-914c-cf2be52aa9f7\",\n    \"entityType\": 2,\n    \"imageType\": 1\n  }",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/image/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"image",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
